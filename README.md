@@ -1,8 +1,36 @@
-Hey devs,
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Happy to see you all here, let we showcase our skills and talent on creating this wonderfull website for our symposium ZORPHIX.....
+## Getting Started
 
+First, run the development server:
 
-..............................................................................ZORPHIX....................................................................................................
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Computer Science & Business Systems is the first stream in engineering designed to meet the future demands of the rapidly changing tech industry in the era of Business 4.0. Designed by Tata Consultancy Services in an MoU with educational institutions, CSBS is the degree program of the future. The curriculum aims to ensure that the students graduating from the program not only skill up in computer science but also develop an equal appreciation of humanities and management sciences.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
