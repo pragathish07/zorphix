@@ -1,0 +1,67 @@
+import React from 'react';
+import Image from 'next/image';
+
+const Footer: React.FC = () => {
+    return (
+        <div id="footer" className="footer">
+            <div className="footer__logo-box">
+                <picture className="footer__logo">
+                    <Image 
+                    alt="Full logo" 
+                    src={"/img/footer.png"} 
+                    width={1000} height={300}/>
+                </picture>
+            </div>
+            <div className="row">
+                <div className="col-1-of-2">
+                    <p className="footer__copyright">
+                        Zorphix is a national level techno-management symposium organized by the
+                        Department of Computer Science and Business Systems at Chennai Institute of Technology.
+                    </p>
+                </div>
+
+                <div className="col-1-of-2">
+                    <div className="footer__navigation">
+                        <div className="f">
+                            <h3>CONNECT WITH US</h3>
+                            <div className="f_inner">
+                                <a
+                                    href="https://www.instagram.com/zorphix.cit/"
+                                    target="_blank"
+                                    rel='noreferrer'
+                                >
+                                    <Image className="footer__img" 
+                                    src={"/img/insta-footer.png"} 
+                                    alt="Instagram" 
+                                    width={50} height={50}
+                                    />
+                                </a>
+                                <a
+                                    href="mailto:zorphix@citchennai.net"
+                                    target="_blank"
+                                    rel='noreferrer'
+                                >
+                                    <img className="footer__img" 
+                                    src={"/img/gmail.png"} 
+                                    alt="Gmail" 
+                                    width={50} height={50}/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='text-center'>
+                <span className="copyright" style={{paddingLeft:50}} >©Zorphix 2023 All rights reserved</span>
+            </div>
+            <div className='text-center'>
+                <span>Visitors:</span>
+                <a className='count' href="#footer">
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=9020036&style=0024&nbdigits=4&type=ip&initCount=0" title="Counter Widget" alt="visitor-counter" />
+                </a>
+            </div>
+        </div>
+    );
+}
+
+export default Footer;
