@@ -18,18 +18,18 @@ const Team: React.FC = () => {
       <div className="main-section">
         <div className="box">
           <h2 className="position">President</h2>
-          <h3 className="heading-tertiary u-margin-bottom-small">Raveen RV</h3>
-          <p>+91 90921 25904</p>
-        </div>
-        <div className="box">
-          <h2 className="position">Vice President</h2>
-          <h3 className="heading-tertiary u-margin-bottom-small">Bharath</h3>
+          <h3 className="heading-tertiary u-margin-bottom-small">Bharath V</h3>
           <p>+91 97515 83361</p>
         </div>
         <div className="box">
+          <h2 className="position">Vice President</h2>
+          <h3 className="heading-tertiary u-margin-bottom-small">Maneesh J J</h3>
+          <p>+91 90251 12972</p>
+        </div>
+        <div className="box">
           <h2 className="position">Treasurer</h2>
-          <h3 className="heading-tertiary u-margin-bottom-small">Karan & Sheryl</h3>
-          <p>+91 73976 59717</p>
+          <h3 className="heading-tertiary u-margin-bottom-small">Deepak V</h3>
+          <p>+91 81225 50684</p>
         </div>
       </div>
     </div>
