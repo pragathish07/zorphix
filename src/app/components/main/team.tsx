@@ -28,7 +28,7 @@ const Team: React.FC = () => {
         </div>
         <div className="box">
           <h2 className="position">Treasurer</h2>
-          <h3 className="heading-tertiary u-margin-bottom-small">Deepak V</h3>
+          <h3 className="heading-tertiary u-margin-bottom-small">Deepak K</h3>
           <p>+91 81225 50684</p>
         </div>
       </div>
