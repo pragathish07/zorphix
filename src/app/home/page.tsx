@@ -80,7 +80,7 @@ const Home: React.FC = () => {
               <li className="navigation__item">
                 <div className="navigation__link">
                   <a
-                    href="#"
+                    href="login"
                     className="navigation__link four"
                   >
                     Login
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
             >
               CIT Bus Routes ↗
             </a>
-            <br/><br/><br/><br/>
+            <br/><br/>
             <Counter/>
           </div>
         </div>
