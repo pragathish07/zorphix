@@ -1,15 +1,15 @@
+"use client";
+
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
+
 
 const Footer: React.FC = () => {
     return (
         <div id="footer" className="footer">
             <div className="footer__logo-box">
                 <picture className="footer__logo">
-                    <Image 
-                    alt="Full logo" 
-                    src={"/img/footer.png"} 
-                    width={1000} height={300}/>
+                <img src={"/img/footer.png"}/>
                 </picture>
             </div>
             <div className="row">
@@ -30,11 +30,8 @@ const Footer: React.FC = () => {
                                     target="_blank"
                                     rel='noreferrer'
                                 >
-                                    <Image className="footer__img" 
-                                    src={"/img/insta-footer.png"} 
-                                    alt="Instagram" 
-                                    width={50} height={50}
-                                    />
+                                    <img className="footer__img"
+                                    src={"/img/insta-footer.png"}/>
                                 </a>
                                 <a
                                     href="mailto:zorphix@citchennai.net"
@@ -44,7 +41,7 @@ const Footer: React.FC = () => {
                                     <img className="footer__img" 
                                     src={"/img/gmail.png"} 
                                     alt="Gmail" 
-                                    width={50} height={50}/>
+                                    />
                                 </a>
                             </div>
                         </div>
