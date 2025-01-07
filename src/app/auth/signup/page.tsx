@@ -53,7 +53,7 @@ const Signup = () => {
         degree,
       });
 
-      await fetch('/api/qrcode', {
+    /*   await fetch('/api/qrcode', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,11 +63,13 @@ const Signup = () => {
           name,
           email,
         }),
-      });
+      }); */
 
-      router.push('/');
+      router.push('/auth/login');
     } catch (error) {
       setError('Failed to create an account. Please try again.');
+      console.log(error);
+      
       console.error('Error signing up:', error);
     } finally {
       setLoading(false);
