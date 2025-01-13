@@ -1,16 +1,20 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import Select, { SingleValue } from "react-select";
-import { auth } from "@/firebaseConfig";
+import { auth, db } from "@/firebaseConfig";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation"; 
-import Image from "next/image";
 import './login.css'; 
+import { doc, setDoc } from "@firebase/firestore";
+import { v4 as uuid } from 'uuid';
+
+
 
 
 
 interface UserData {
+  
   fullName: string;
   college: string;
   degree: string;
@@ -44,6 +48,7 @@ const LoginForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   
   const [data, setData] = useState<UserData>({
+    
     fullName: "",
     college: "",
     degree: "",
@@ -145,7 +150,41 @@ const LoginForm: React.FC = () => {
         await signInWithEmailAndPassword(auth, data.email, data.password);
       } else {
        
-        await createUserWithEmailAndPassword(auth, data.email, data.password);
+        const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+        const user = userCredential.user;
+        const userUuid = uuid();
+
+        await setDoc(doc(db, 'users', userUuid), {
+          
+          uid: userUuid,
+          email: data.email,
+          name: data.fullName,
+          department: data.dept,
+          year: selectedYear?.value,
+          contactNo: data.contactNo,
+          collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
+          degree: data.degree,
+
+
+        });
+
+        await fetch('/api/qrcode', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: data.fullName,
+          email: data.email,
+          department: data.dept,
+          year: selectedYear?.value,
+          contactNo: data.contactNo,
+          collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
+          degree: data.degree,
+
+        }),
+      });
         
       }
       router.push('/');
