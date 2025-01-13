@@ -80,7 +80,7 @@ const Home: React.FC = () => {
               <li className="navigation__item">
                 <div className="navigation__link">
                   <a
-                    href="login"
+                    href="/auth/login"
                     className="navigation__link four"
                   >
                     Login

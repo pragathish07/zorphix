@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Select, { SingleValue } from "react-select";
-import './login.css'; 
+
 
 interface UserData {
   fullName: string;
