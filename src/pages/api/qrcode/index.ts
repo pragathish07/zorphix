@@ -63,6 +63,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     })
     .then(()=>{
       console.log("Email sent successfully");
+      res.status(200).json({ message: 'Email sent successfully' });
     })
     .catch((err)=>{
       console.log(err);

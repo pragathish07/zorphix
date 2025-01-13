@@ -80,7 +80,7 @@ const Home: React.FC = () => {
               <li className="navigation__item">
                 <div className="navigation__link">
                   <a
-                    href="login"
+                    href="/auth/login"
                     className="navigation__link four"
                   >
                     Login
@@ -110,12 +110,12 @@ const Home: React.FC = () => {
             <div className="logos">
               <img
                 className="heading-primary--sub zor"
-                src={"/img/Zorphix-final-without-name.png"}
+                src={"/img/zologo.png"}
                 alt="new-logo"
               />
               <img
                 className="heading-primary--main zorphix"
-                src={"/img/Zorphix-landing-logo.png"}
+                src={"/img/zo.png"}
                 alt="zorphix-logo"
               />
             </div>
