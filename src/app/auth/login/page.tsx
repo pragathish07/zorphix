@@ -36,19 +36,26 @@ const yearOptions: Option[] = [
 ];
 
 const DegreeOptions: Option[] = [
-  { value: "1", label: "Btech" },
-  { value: "2", label: "BE" },
-  { value: "3", label: "Bsc" },
-  { value: "4", label: "Bcom" }
+  { value: "1", label: "B.Tech" },
+  { value: "2", label: "B.E" },
+  { value: "3", label: "B.Sc" },
+  { value: "4", label: "B.Com" }
 ];
 const DeptOptions: Option[] = [
-  { value: "1", label: "csbs" },
-  { value: "2", label: "cse" },
-  { value: "3", label: "ai&ds" },
-  { value: "4", label: "ai&ml" },
-  { value: "5", label: "it" },
-  { value: "6", label: "cs" },
-  { value: "7", label: "ece" }
+  { value: "1", label: "Artificial Intelligence and Data Science" },
+  { value: "2", label: "Biomedical Engineering" },
+  { value: "3", label: "Chemical Engineering"},
+  { value: "4", label: "Civil Engineering"},
+  { value: "5", label: "Computer Science and Business Systems" },
+  { value: "6", label: "Computer Science and Design"},
+  { value: "7", label: "Computer Science and Engineering" },
+  { value: "8", label: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)" },
+  { value: "9", label: "Computer Science and Engineering (Cyber Security)" },
+  { value: "10", label: "Electrical and Electronics Engineering" },
+  { value: "11", label: "Electronics and Communication Engg" },
+  { value: "12", label: "Mechanical Engineering"},
+  { value: "13", label: "Mechatronics Engineering"},
+  { value: "14", label: "Information and Technology" },
 ];
 
 
@@ -185,11 +192,11 @@ const LoginForm: React.FC = () => {
           uid: userUuid,
           email: data.email,
           name: data.fullName,
-          department: data.dept,
+          department: selectedDept?.value,
           year: selectedYear?.value,
           contactNo: data.contactNo,
           collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-          degree: data.degree,
+          degree: selectedDegree?.value,
         });
   
         await fetch("/api/qrcode", {
@@ -199,11 +206,11 @@ const LoginForm: React.FC = () => {
             uid: user.uid,
             name: data.fullName,
             email: data.email,
-            department: data.dept,
+            department: selectedDept?.value,
             year: selectedYear?.value,
             contactNo: data.contactNo,
             collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-            degree: data.degree,
+            degree: selectedDegree?.value,
           }),
         });
       }
