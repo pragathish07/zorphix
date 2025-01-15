@@ -11,6 +11,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// Configure Nodemailer
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -24,10 +25,31 @@ const transporter = nodemailer.createTransport({
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
-      const { name, email, uid } = req.body;
+      const {
+        name,
+        email,
+        uid,
+        department,
+        year,
+        contactNo,
+        collegeName,
+        degree,
+      } = req.body;
 
-      // Generate the QR Code as a Data URL
-      const qrCodeData = await QRCode.toDataURL(uid);
+      // Combine all fields into an object for the QR code
+      const qrData = {
+        uid,
+        name,
+        email,
+        department,
+        year,
+        contactNo,
+        collegeName,
+        degree,
+      };
+
+      // Convert the object to a JSON string
+      const qrCodeData = await QRCode.toDataURL(JSON.stringify(qrData));
 
       // Upload the QR code to Cloudinary
       const cloudinaryResponse = await cloudinary.uploader.upload(qrCodeData, {
@@ -42,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await transporter.sendMail({
         to: email,
         subject: "Welcome to Zorphix 2024!",
-        html: getEmailTemplate(name),
+        html: getEmailTemplate(name), // Use your email template here
         attachments: [
           {
             filename: `${uid}.png`,
