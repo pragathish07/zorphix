@@ -114,9 +114,15 @@ form.sign-up-form {
 .input-wrap {
     position: relative;
     height: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     margin-top: 3rem;
+
 }
+
+.err{
+    position: absolute;
+}
+
 
 
 .div-flex {
@@ -182,7 +188,7 @@ form.sign-up-form {
     border-radius: 1.2rem;
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     transition: 0.3s;
 }
 
@@ -235,6 +241,40 @@ main.sign-up-mode .carousel {
     overflow: hidden;
     transition: 0.8s ease-in-out;
 }
+
+
+.error-text {
+    color: red;
+    font-size: 1rem; 
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    bottom: -2rem;
+    
+
+  }
+  .err-txt-select{
+    color: red;
+    font-size: 1rem; 
+    margin-top: 0.2rem;
+    
+  }
+  
+  .common-error {
+    color: red;
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+
+  .flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    
+  }
 
 .images-wrapper {
     display: grid;
