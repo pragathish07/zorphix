@@ -138,7 +138,7 @@ const LoginForm: React.FC = () => {
     }
 
     if (!isSignUpMode) {
-      if (!data.fullName || !selectedCollege || !data.degree || !selectedYear || !data.dept || !data.contactNo) {
+      if (!data.fullName || !selectedCollege || !selectedDegree || !selectedYear || !selectedDept || !data.contactNo) {
         setError("All fields are required for registration");
         return false;
       }
