@@ -10,9 +10,6 @@ import { doc, setDoc } from "@firebase/firestore";
 import { v4 as uuid } from 'uuid';
 
 
-
-
-
 interface UserData {
   
   fullName: string;
@@ -46,6 +43,9 @@ const LoginForm: React.FC = () => {
   const [activeImage, setActiveImage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof UserData, string>>>({});
+  const [commonError, setCommonError] = useState<string | null>(null);
+
   
   const [data, setData] = useState<UserData>({
     
@@ -107,55 +107,49 @@ const LoginForm: React.FC = () => {
   };
 
   const validateForm = (): boolean => {
-    if (!data.email || !data.password) {
-      setError("Email and password are required");
-      return false;
-    }
-
+    const errors: Partial<Record<keyof UserData, string>> = {};
+  
+    if (!data.email) errors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Invalid email format";
+  
+    if (!data.password) errors.password = "Password is required";
+    else if (data.password.length < 6) errors.password = "Password must be at least 6 characters long";
+  
     if (!isSignUpMode) {
-      if (!data.fullName || !selectedCollege || !data.degree || !selectedYear || !data.dept || !data.contactNo) {
-        setError("All fields are required for registration");
-        return false;
-      }
-
-      if (selectedCollege.value === "other" && !otherCollege) {
-        setError("Please enter your college name");
-        return false;
-      }
-
-      if (data.password.length < 6) {
-        setError("Password must be at least 6 characters long");
-        return false;
-      }
-
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        setError("Please enter a valid email address");
-        return false;
-      }
+      if (!data.fullName) errors.fullName = "Full name is required";
+      if (!selectedCollege) errors.college = "College is required";
+      if (selectedCollege?.value === "other" && !otherCollege.trim()) errors.college = "Please enter your college name";
+      if (!data.degree) errors.degree = "Degree is required";
+      if (!selectedYear) errors.year = "Year is required";
+      if (!data.dept) errors.dept = "Department is required";
+      if (!data.contactNo) errors.contactNo = "Contact number is required";
+      else if (!/^\d{10}$/.test(data.contactNo)) errors.contactNo = "Contact number must be 10 digits";
     }
-
-    return true;
+  
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
   };
+  
+  
+  
 
-  const handleSubmit = async (e:FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-
+  
     setLoading(true);
-    setError(null);
-
+    setCommonError(null);
+  
+  
     try {
       if (isSignUpMode) {
-        
         await signInWithEmailAndPassword(auth, data.email, data.password);
       } else {
-       
         const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
         const user = userCredential.user;
+  
         const userUuid = uuid();
-
-        await setDoc(doc(db, 'users', userUuid), {
-          
+        await setDoc(doc(db, "users", userUuid), {
           uid: userUuid,
           email: data.email,
           name: data.fullName,
@@ -164,40 +158,39 @@ const LoginForm: React.FC = () => {
           contactNo: data.contactNo,
           collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
           degree: data.degree,
-
-
         });
-
-        await fetch('/api/qrcode', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          uid: user.uid,
-          name: data.fullName,
-          email: data.email,
-          department: data.dept,
-          year: selectedYear?.value,
-          contactNo: data.contactNo,
-          collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-          degree: data.degree,
-
-        }),
-      });
-        
+  
+        await fetch("/api/qrcode", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            uid: user.uid,
+            name: data.fullName,
+            email: data.email,
+            department: data.dept,
+            year: selectedYear?.value,
+            contactNo: data.contactNo,
+            collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
+            degree: data.degree,
+          }),
+        });
       }
-      router.push('/');
+      router.push("/");
     } catch (err) {
-      setError(
-        err instanceof Error 
-          ? err.message 
-          : "An error occurred during authentication"
-      );
-    } finally {
-      setLoading(false);
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred. Please try again later.";
+      setCommonError(errorMessage);
+    }finally{
+      setLoading(false)
     }
   };
+
+/*   const ErrorMessage = ({ error }: { error?: string }) => (
+    error ? <div className="error-text">{error}</div> : null
+  ); */
+  
 
   return (
     <main>
@@ -221,13 +214,19 @@ const LoginForm: React.FC = () => {
             {!isSignUpMode && (
               <>
                 <div className="input-wrap">
-                  <input
-                    type="text"
-                    className="input-field"
-                    value={data.fullName}
-                    onChange={(e) => setData({ ...data, fullName: e.target.value })}
-                    placeholder="Full name"
-                  />
+                
+                    <input
+                      type="text"
+                      className="input-field"
+                      value={data.fullName}
+                      onChange={(e) => setData({ ...data, fullName: e.target.value })}
+                      placeholder="Full name"
+                    />
+                  
+                  <div className="err">
+                    {fieldErrors.fullName && <p className="error-text">{fieldErrors.fullName}</p>}
+                  </div>
+                 {/*  <ErrorMessage error={fieldErrors.email} /> */}
                 </div>
 
                 <div className="input-wrap college-select">
@@ -238,6 +237,7 @@ const LoginForm: React.FC = () => {
                     onChange={handleCollegeChange}
                     placeholder="Select your college"
                   />
+                  {fieldErrors.college && <p className="err-txt-select">{fieldErrors.college}</p>}
                 </div>
 
                 {selectedCollege?.label === "Other" && (
@@ -249,6 +249,7 @@ const LoginForm: React.FC = () => {
                       onChange={handleOtherCollege}
                       placeholder="Enter your college name"
                     />
+                    {fieldErrors.college && <p className="error-text">{fieldErrors.college}</p>}
                   </div>
                 )}
 
@@ -261,6 +262,7 @@ const LoginForm: React.FC = () => {
                       onChange={(e) => setData({ ...data, degree: e.target.value })}
                       placeholder="Degree"
                     />
+                    {fieldErrors.degree && <p className="error-text">{fieldErrors.degree}</p>}
                   </div>
                   <div>
                     <Select
@@ -270,6 +272,7 @@ const LoginForm: React.FC = () => {
                       onChange={handleYearChange}
                       placeholder="Year"
                     />
+                    {fieldErrors.year && <p className="err-txt-select">{fieldErrors.year}</p>}
                   </div>
                 </div>
 
@@ -281,6 +284,7 @@ const LoginForm: React.FC = () => {
                     onChange={(e) => setData({ ...data, dept: e.target.value })}
                     placeholder="Department"
                   />
+                  {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
                 </div>
 
                 <div className="input-wrap">
@@ -291,6 +295,7 @@ const LoginForm: React.FC = () => {
                     onChange={(e) => setData({ ...data, contactNo: e.target.value })}
                     placeholder="Contact no"
                   />
+                  {fieldErrors.contactNo && <p className="error-text">{fieldErrors.contactNo}</p>}
                 </div>
               </>
             )}
@@ -303,6 +308,7 @@ const LoginForm: React.FC = () => {
                 onChange={(e) => setData({ ...data, email: e.target.value })}
                 placeholder="Email"
               />
+              {fieldErrors.email && <p className="error-text">{fieldErrors.email}</p>}
             </div>
 
             <div className="input-wrap">
@@ -313,6 +319,7 @@ const LoginForm: React.FC = () => {
                 onChange={(e) => setData({ ...data, password: e.target.value })}
                 placeholder="Password"
               />
+              {fieldErrors.password && <p className="error-text">{fieldErrors.password}</p>}
             </div>
 
             <button
@@ -343,6 +350,7 @@ const LoginForm: React.FC = () => {
             />
           ))}
         </div>
+        {commonError && <div className="common-error">{commonError}</div>}
       </div>
     </div>
 

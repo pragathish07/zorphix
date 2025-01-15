@@ -51,12 +51,7 @@ const Footer: React.FC = () => {
             <div className='text-center'>
                 <span className="copyright" style={{paddingLeft:50}} >©Zorphix 2023 All rights reserved</span>
             </div>
-            <div className='text-center'>
-                <span>Visitors:</span>
-                <a className='count' href="#footer">
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=9020036&style=0024&nbdigits=4&type=ip&initCount=0" title="Counter Widget" alt="visitor-counter" />
-                </a>
-            </div>
+           
         </div>
     );
 }
