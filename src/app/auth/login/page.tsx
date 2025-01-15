@@ -219,6 +219,12 @@ const LoginForm: React.FC = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
+
 /*   const ErrorMessage = ({ error }: { error?: string }) => (
     error ? <div className="error-text">{error}</div> : null
   ); */
@@ -229,7 +235,7 @@ const LoginForm: React.FC = () => {
     <div className={`login-box ${isSignUpMode ? 'sign-up-mode' : ''}`}>
     <div className="inner-box">
       <div className="forms-wrap">
-        <form id="login" autoComplete="off" className="sign-in-form" onSubmit={handleSubmit}>
+        <form id="login" autoComplete="off" className="sign-in-form" onSubmit={handleSubmit}  onKeyDown={handleKeyDown}>
           <div className="login-logo">
             <img src="/img/loginlog.png" alt="easyclass" />
           </div>
@@ -237,7 +243,8 @@ const LoginForm: React.FC = () => {
           <div className="heading">
             <h2>{isSignUpMode ? "Welcome back" : "Get registered"}</h2>
             <h6>{isSignUpMode ? "Not registered yet?" : "Already registered?"}</h6>
-            <button className="toggle link-button" onClick={toggleMode}>
+
+            <button type="button" className="toggle link-button" onClick={toggleMode}>
               {isSignUpMode ? "Sign up" : "Sign in"}
             </button>
           </div>
@@ -252,6 +259,7 @@ const LoginForm: React.FC = () => {
                       className="input-field"
                       value={data.fullName}
                       onChange={(e) => setData({ ...data, fullName: e.target.value })}
+                      required
                       placeholder="Full name"
                     />
                   
@@ -267,6 +275,7 @@ const LoginForm: React.FC = () => {
                     options={collegeOptions}
                     value={selectedCollege}
                     onChange={handleCollegeChange}
+                    required
                     placeholder="Select your college"
                   />
                   {fieldErrors.college && <p className="err-txt-select">{fieldErrors.college}</p>}
@@ -279,6 +288,7 @@ const LoginForm: React.FC = () => {
                       className="input-field"
                       value={otherCollege || ""}
                       onChange={handleOtherCollege}
+                      required
                       placeholder="Enter your college name"
                     />
                     {fieldErrors.college && <p className="error-text">{fieldErrors.college}</p>}
@@ -292,6 +302,7 @@ const LoginForm: React.FC = () => {
                       options={DegreeOptions}
                       value={selectedDegree}
                       onChange={handleDegreeChange}
+                      required
                       placeholder="Degree"
                     />
                     {fieldErrors.degree && <p className="error-text">{fieldErrors.degree}</p>}
@@ -302,6 +313,7 @@ const LoginForm: React.FC = () => {
                       options={yearOptions}
                       value={selectedYear}
                       onChange={handleYearChange}
+                      required
                       placeholder="Year"
                     />
                     {fieldErrors.year && <p className="err-txt-select">{fieldErrors.year}</p>}
@@ -316,6 +328,7 @@ const LoginForm: React.FC = () => {
                       options={DeptOptions}
                       value={selectedDept}
                       onChange={handleDeptChange}
+                      required
                       placeholder="Dept"
                     />
          {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
@@ -328,6 +341,7 @@ const LoginForm: React.FC = () => {
                     className="input-field"
                     value={data.contactNo}
                     onChange={(e) => setData({ ...data, contactNo: e.target.value })}
+                    required
                     placeholder="Contact no"
                   />
                   {fieldErrors.contactNo && <p className="error-text">{fieldErrors.contactNo}</p>}
@@ -341,6 +355,7 @@ const LoginForm: React.FC = () => {
                 className="input-field"
                 value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
+                required
                 placeholder="Email"
               />
               {fieldErrors.email && <p className="error-text">{fieldErrors.email}</p>}
@@ -352,6 +367,7 @@ const LoginForm: React.FC = () => {
                 className="input-field"
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
+                required
                 placeholder="Password"
               />
               {fieldErrors.password && <p className="error-text">{fieldErrors.password}</p>}
