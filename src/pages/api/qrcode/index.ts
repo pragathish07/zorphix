@@ -1,75 +1,63 @@
 import nodemailer from 'nodemailer';
 import QRCode from 'qrcode';
-import { NextApiRequest,NextApiResponse } from 'next';
+import { v2 as cloudinary } from 'cloudinary';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { getEmailTemplate } from '../../../../utils/emailTemplate'; // Adjust path if necessary
 
-const transporter=nodemailer.createTransport({
-  host:"smtp.gmail.com",
-  port:465,
-  secure:true,
-  auth:{
-    user:process.env.GMAIL_USER,
-    pass:process.env.GMAIL_PASS
-  }
-})
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-export default async function handler(req:NextApiRequest, res:NextApiResponse) {
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
+  },
+});
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const name:String = req.body.name;
-    const email:any = req.body.email;
-    const uid:any=req.body.uid;
-    const qrCodeData = await QRCode.toDataURL(uid);
+    try {
+      const { name, email, uid } = req.body;
 
-    transporter.sendMail({
-      to:email,
-      subject:"test",
-      html:`
-      
-        <!-- Banner Image -->
-        <img src="your-banner-url.jpg" alt="Zorphix Symposium Banner" class="banner-image">
+      // Generate the QR Code as a Data URL
+      const qrCodeData = await QRCode.toDataURL(uid);
 
-        <h1 class="custom-heading">Welcome to Zorphix 2024!</h1>
-        
-        <p class="event-details">
-            Welcome ${name},We are excited to announce that Zorphix, a national-level symposium, is being conducted by the Computer Science and Business System department at Chennai Institute of Technology, Kundrathur. This event is a great opportunity to engage, learn, and grow with like-minded individuals in the field.
-        </p>
-        
-        <p class="event-details">
-            <strong>Details of the Event:</strong><br>
-            Zorphix is a national-level symposium conducted by the Computer Science and Business System department at Chennai Institute of Technology, Kundrathur. It is going to be held on 14th September 2024.
-        </p>
-        
-        <div class="left-aligned">
-            <p class="event-details">
-                <strong>Date:</strong><br>
-                14th September 2024
-            </p>
-            
-            <p class="event-details">
-                <strong>Venue:</strong><br>
-                Chennai Institute of Technology, Kundrathur
-            </p>
-        </div>
-        
-        <p class="event-details" style="text-align: center;">
-            Thank you for registering for this event! We look forward to your participation and hope you have a fruitful experience.
-        </p>
-      `,
-      attachments: [
-        {
-          filename: 'qrcode.png',
-          path: qrCodeData,
-        },
-      ],
-    })
-    .then(()=>{
+      // Upload the QR code to Cloudinary
+      const cloudinaryResponse = await cloudinary.uploader.upload(qrCodeData, {
+        folder: 'zorphix/qrcodes', // Optional folder in Cloudinary
+        public_id: uid, // Use UID as the public ID for easy retrieval
+        overwrite: true,
+      });
+
+      const qrCodeUrl = cloudinaryResponse.secure_url; // Get the URL of the uploaded image
+
+      // Send the email with the QR code link
+      await transporter.sendMail({
+        to: email,
+        subject: "Welcome to Zorphix 2024!",
+        html: getEmailTemplate(name),
+        attachments: [
+          {
+            filename: `${uid}.png`,
+            path: qrCodeUrl, // Use the Cloudinary URL
+          },
+        ],
+      });
+
       console.log("Email sent successfully");
       res.status(200).json({ message: 'Email sent successfully' });
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-
-     } else {
+    } catch (error) {
+      console.error("Error occurred:", error);
+      res.status(500).json({ message: 'Failed to send email' });
+    }
+  } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
 }
