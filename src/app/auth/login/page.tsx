@@ -35,6 +35,22 @@ const yearOptions: Option[] = [
   { value: "4", label: "Year 4" }
 ];
 
+const DegreeOptions: Option[] = [
+  { value: "1", label: "Btech" },
+  { value: "2", label: "BE" },
+  { value: "3", label: "Bsc" },
+  { value: "4", label: "Bcom" }
+];
+const DeptOptions: Option[] = [
+  { value: "1", label: "csbs" },
+  { value: "2", label: "cse" },
+  { value: "3", label: "ai&ds" },
+  { value: "4", label: "ai&ml" },
+  { value: "5", label: "it" },
+  { value: "6", label: "cs" },
+  { value: "7", label: "ece" }
+];
+
 
 
 const LoginForm: React.FC = () => {
@@ -62,6 +78,8 @@ const LoginForm: React.FC = () => {
   const [selectedCollege, setSelectedCollege] = useState<SingleValue<Option>>(null);
   const [otherCollege, setOtherCollege] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<SingleValue<Option>>(null);
+  const [selectedDegree, setSelectedDegree] = useState<SingleValue<Option>>(null);
+  const [selectedDept, setSelectedDept] = useState<SingleValue<Option>>(null);
 
 
   const handleCollegeChange = (option: SingleValue<Option>) => {
@@ -79,6 +97,13 @@ const LoginForm: React.FC = () => {
     setSelectedYear(option);
   };
 
+  const handleDegreeChange = (option: SingleValue<Option>) => {
+    setSelectedDegree(option);
+  };
+
+  const handleDeptChange = (option: SingleValue<Option>) => {
+    setSelectedDept(option);
+  };
 
 
   const toggleMode = (event: FormEvent) => {
@@ -255,11 +280,11 @@ const LoginForm: React.FC = () => {
 
                 <div className="input-wrap div-flex">
                   <div>
-                    <input
-                      type="text"
-                      className="input-field degree-field"
-                      value={data.degree}
-                      onChange={(e) => setData({ ...data, degree: e.target.value })}
+                  <Select
+                      className="college-select year-field"
+                      options={DegreeOptions}
+                      value={selectedDegree}
+                      onChange={handleDegreeChange}
                       placeholder="Degree"
                     />
                     {fieldErrors.degree && <p className="error-text">{fieldErrors.degree}</p>}
@@ -277,14 +302,17 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="input-wrap">
-                  <input
-                    type="text"
-                    className="input-field"
-                    value={data.dept}
-                    onChange={(e) => setData({ ...data, dept: e.target.value })}
-                    placeholder="Department"
-                  />
-                  {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
+                
+                
+                    <Select
+                      className="college-select year-field"
+                      options={DeptOptions}
+                      value={selectedDept}
+                      onChange={handleDeptChange}
+                      placeholder="Dept"
+                    />
+         {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
+
                 </div>
 
                 <div className="input-wrap">
