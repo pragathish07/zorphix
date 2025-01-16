@@ -1,0 +1,56 @@
+.section-profile {
+    padding: 2rem;
+    height: 100vh;
+  }
+  
+  .profile__navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .profile__back-button,
+  .profile__logout-button {
+    background-color: transparent;
+    font-size: 3rem;
+    cursor: pointer;
+    color:#fff;
+  }
+
+  .profile__logout-button{
+    border: none;
+  }
+
+  .profile__back-button{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+  }
+  
+  .u-center-text {
+    text-align: center;
+  }
+  
+  .heading-secondary {
+    font-size: 5rem;
+    color:#fff;
+    font-weight: bold;
+  }
+  
+  .profile__info {
+    font-size: 2rem;
+    color:#fff;
+  }
+  
+  .profile__field {
+    margin-bottom: 1rem;
+  }
+  
+  .profile__qr {
+    margin-top: 2rem;
+  }
+  
+  .profile__qr-image {
+    width: 250px;
+    height: 250px;
+  }

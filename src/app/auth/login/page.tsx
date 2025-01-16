@@ -186,10 +186,9 @@ const LoginForm: React.FC = () => {
       } else {
         const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
         const user = userCredential.user;
-
         const userUuid = uuid();
         const res2=await setDoc(doc(db, "users", userUuid), {
-          uid: userUuid,
+          uid: user.uid,
           email: data.email,
           name: data.fullName,
           department: selectedDept?.value,
@@ -203,7 +202,7 @@ const LoginForm: React.FC = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            uid: userUuid,
+            uid: user.uid,
             name: data.fullName,
             email: data.email,
             department: selectedDept?.value,

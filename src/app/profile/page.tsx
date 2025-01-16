@@ -5,7 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth, db } from '../../firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDocs, collection, query, where } from 'firebase/firestore';
+import "./profile.css"
 
 const Profile = () => {
   const router = useRouter();
@@ -15,12 +16,22 @@ const Profile = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      console.log(user?.uid);
+      const uid=user?.uid;
       if (user) {
         setUser(user);
-        const userDoc = await getDoc(doc(db, 'users', user.uid));
-        if (userDoc.exists()) {
-          setUserData(userDoc.data());
-        }
+        const usersCollection = collection(db, "users");
+        const q=query(
+          usersCollection,
+          where("uid","==",uid)
+        );
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log(data);
+        setUserData(data[0]);
       } else {
         router.push('/login');
       }
