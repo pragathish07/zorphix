@@ -119,7 +119,7 @@ const Home: React.FC = () => {
                 alt="zorphix-logo"
               />
             </div>
-            <h1 className="heading-primary--sub date">September 20th 2023</h1>
+            <h1 className="heading-primary--sub date">February 6th 2025</h1>
 
             <a
               href="https://drive.google.com/file/d/1dMm0oCW53daJt7EmHRQF6yqpZOane29A/view?usp=sharing"

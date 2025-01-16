@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
+import { useRouter } from 'next/navigation';
 import Select, { SingleValue } from "react-select";
 import './login.css'; 
 
@@ -21,6 +22,7 @@ interface Option {
 }
 
 const LoginForm: React.FC = () => {
+  const router = useRouter();
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [activeImage, setActiveImage] = useState(1);
   const [data, setData] = useState<UserData>({
@@ -1070,12 +1072,17 @@ const LoginForm: React.FC = () => {
     { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" }
   ];
 
+  const handleLogin = (event: React.FormEvent) => {
+    event.preventDefault();
+    router.push('/profile'); 
+  };
+
   return (
     <main>
   <div className={`login-box ${isSignUpMode ? 'sign-up-mode' : ''}`}>
     <div className="inner-box">
       <div className="forms-wrap">
-        <form id="login" autoComplete="off" className="sign-in-form">
+        <form id="login" autoComplete="off" className="sign-in-form" onSubmit={handleLogin}>
           <div className="login-logo">
             <img src="/img/loginlog.png" alt="easyclass" />
           </div>
@@ -1125,18 +1132,25 @@ const LoginForm: React.FC = () => {
 
                 <div className="input-wrap div-flex">
                   <div>
-                    <input
+                    {/* <input
                       type="text"
                       className="input-field degree-field"
                       value={data.degree}
                       onChange={(e) => setData({ ...data, degree: e.target.value })}
+                      placeholder="Degree"
+                    /> */}
+                    <Select
+                      className="college-select year-field"
+                      options={[{ value: "1", label: "BTech" }, { value: "2", label: "BE" } , { value: "3", label: "BSc" }, { value: "4", label: "BCom" }, { value: "4", label: "BBA" }]} 
+                      value={selectedYear}
+                      onChange={handleYearChange}
                       placeholder="Degree"
                     />
                   </div>
                   <div>
                     <Select
                       className="college-select year-field"
-                      options={[{ value: "1", label: "Year 1" }, { value: "2", label: "Year 2" }]} // Add your options here
+                      options={[{ value: "1", label: "I Year" }, { value: "2", label: "II Year" } , { value: "3", label: "III Year" }, { value: "4", label: "IV Year" }]} 
                       value={selectedYear}
                       onChange={handleYearChange}
                       placeholder="Year"

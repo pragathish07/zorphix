@@ -81,10 +81,10 @@ const TechEvents = () => {
                       toggle(
                         "xCoders",
                         "CrossCoders is an electrifying coding competition where participants go beyond traditional coding. Contestants are expected to analyze code snippets and convert them into a language of their choice.",
-                        "Bhanupriya M",
-                        "Jawahar Ganesh D",
-                        "+91 96770 55652",
-                        "+91 93603 90526",
+                        "S Yathissh",
+                        "Sachin A",
+                        "+91 87543 83899",
+                        "+91 98949 31196",
                         "forms.gle/RqExTs9gLNsFEPCHA",
                         "Security Lab - First Floor"
                       )
