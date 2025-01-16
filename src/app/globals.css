@@ -1642,7 +1642,7 @@
   
   .copyright {
     text-align: center;
-    float: inline-start;
+    /* float: inline-start; */
   }
   
   .footer__logo-box {
@@ -1998,7 +1998,7 @@
     background-image: linear-gradient(120deg,
         transparent 0%,
         transparent 50%,
-        #fff 50%);
+        #c77dff 50%);
     background-size: 250%;
     -webkit-transition: all 0.6s;
     transition: all 0.6s;

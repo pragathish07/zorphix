@@ -15,7 +15,7 @@ const EntryPass: React.FC = () => {
         <h2 className="heading-secondary white letter-spacing">Your Entry Pass</h2>
       </div>
       <div style={{ color: "white" }} className="qrdiv">
-        <a href="/login" className="btn btn--white btn--animated bold">
+        <a href="/auth/login" className="btn btn--white btn--animated bold">
           <h3 className="mt-2"><b>Login to get Entry Pass</b></h3>
         </a>
         <br />

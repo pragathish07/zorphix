@@ -13,6 +13,7 @@ import { auth } from "@/firebaseConfig";
 const App: React.FC = () => {
 
   const [user]=useAuthState(auth);
+  console.log(user);
 
   const { scrollYProgress } = useScroll();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -84,16 +85,23 @@ const App: React.FC = () => {
                     </a>
                   </div>
                 </li>
+              {user ? (
                 <li className="navigation__item">
-                  <div className="navigation__link">
-                    <a
-                      href="/auth/login"
-                      className="navigation__link four"
-                    >
+                  <div className="navigation__link" onClick={toggleCheckbox}>
+                    <a href="/profile" className="navigation__link five">
+                      Profile
+                    </a>
+                  </div>
+                </li>
+              ) : (
+                <li className="navigation__item">
+                  <div className="navigation__link" onClick={toggleCheckbox}>
+                    <a href="/auth/login" className="navigation__link five">
                       Login
                     </a>
                   </div>
                 </li>
+              )}
               </ul>
             </nav>
           </div>
@@ -126,7 +134,7 @@ const App: React.FC = () => {
                   alt="zorphix-logo"
                 />
               </div>
-              <h1 className="heading-primary--sub date">September 20th 2023</h1>
+              <h1 className="heading-primary--sub date">February 6th 2025</h1>
   
               <a
                 href="https://drive.google.com/file/d/1dMm0oCW53daJt7EmHRQF6yqpZOane29A/view?usp=sharing"

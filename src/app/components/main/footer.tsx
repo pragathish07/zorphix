@@ -49,9 +49,8 @@ const Footer: React.FC = () => {
                 </div>
             </div>
             <div className='text-center'>
-                <span className="copyright" style={{paddingLeft:50}} >©Zorphix 2023 All rights reserved</span>
+                <span className="copyright" style={{paddingLeft:50}} >©Zorphix 2025 All rights reserved</span>
             </div>
-           
         </div>
     );
 }

@@ -6,7 +6,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css';
 
 const TechEvents = () => {
-  useEffect(() => {
+  useEffect(() => { 
     Aos.init({ duration: 1000 });
   });
 
@@ -81,19 +81,19 @@ const TechEvents = () => {
                       toggle(
                         "xCoders",
                         "CrossCoders is an electrifying coding competition where participants go beyond traditional coding. Contestants are expected to analyze code snippets and convert them into a language of their choice.",
-                        "Bhanupriya M",
-                        "Jawahar Ganesh D",
-                        "+91 96770 55652",
-                        "+91 93603 90526",
+                        "S Yathissh",
+                        "Sachin A",
+                        "+91 87543 83899",
+                        "+91 98949 31196",
                         "forms.gle/RqExTs9gLNsFEPCHA",
-                        "Security Lab - First Floor"
+                        "To be Announced"
                       )
                     }
                   >
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white">
+                <a className="btn btn--white" href="/auth/login">
                   Register Now
                 </a>
               </div>
@@ -134,14 +134,14 @@ const TechEvents = () => {
                         "+91 99520 51446",
                         "+91 91500 02718",
                         "forms.gle/G9GTWJTvh4SZGvqJA",
-                        "HCL Lab (First Floor) / AV Hall (Second Floor - Library ) "
+                        "To be Announced"
                       )
                     }
                   >
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white">
+                <a className="btn btn--white" href="/auth/login">
                   Register Now
                 </a>
               </div>
@@ -181,14 +181,14 @@ const TechEvents = () => {
                         "+91 63809 41457",
                         "+91 73959 30205",
                         "forms.gle/P3QNm3woRoMd6bF66",
-                        "F1 - First Floor"
+                        "To be Announced"
                       )
                     }
                   >
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white">
+                <a className="btn btn--white" href="/auth/login">
                   Register Now
                 </a>
               </div>
@@ -233,14 +233,14 @@ const TechEvents = () => {
                           "+91 93425 37734",
                           "+91 73390 44512",
                           "forms.gle/2r5S34Nfzvnivrzx6",
-                          "F3 - First Floor"
+                          "To be Announced"
                         )
                       }
                     >
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white">
+                  <a className="btn btn--white" href="/auth/login">
                     Register Now
                   </a>
                 </div>
@@ -277,19 +277,19 @@ const TechEvents = () => {
                         toggle(
                           "ALGO-RHYTHMS",
                           "Are you ready to dive into a world where melodies are composed by lines of code, and rhythm is dictated by algorithms? Here, the tech enthusiast delves into coding against the distraction of music. Let the beats and coding begin!",
-                          "Nisha V",
-                          "Harisha BS",
-                          "+91 63699 46328",
-                          "+91 97105 14448",
+                          "Jashvarthini R",
+                          "Giridhar N",
+                          "+91 99400 23788",
+                          "+91 76049 50286",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
-                          "Mobile App Lab - First Floor"
+                          "To be Announced"
                         )
                       }
                     >
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white">
+                  <a className="btn btn--white" href="/auth/login">
                     Register Now
                   </a>
                 </div>
@@ -330,14 +330,14 @@ const TechEvents = () => {
                           "+91 90802 30690",
                           "+91 99402 61966",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
-                          "F22 - First Floor"
+                          "To be Announced"
                         )
                       }
                     >
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white">
+                  <a className="btn btn--white" href="/auth/login">
                     Register Now
                   </a>
                 </div>
@@ -383,14 +383,14 @@ const TechEvents = () => {
                             "+91 83412 73412",
                             "+91 73582 90831",
                             "forms.gle/2r5S34Nfzvnivrzx6",
-                            "F-23 First Floor"
+                            "To be Announced"
                         )
                       }
                     >
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white">
+                  <a className="btn btn--white" href="/auth/login">
                     Register Now
                   </a>
                 </div>

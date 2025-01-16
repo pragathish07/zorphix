@@ -21,16 +21,16 @@ const Sponsors: React.FC = () => {
           </div>
         </div> */}
         <div className="row1">
-          <div className="section-sponsor-card" data-aos="fade-right">
+          {/* <div className="section-sponsor-card" data-aos="fade-right">
             <img src={"/img/poorvika.png"} className="i poorvika" alt="poorvika" />
           </div>
 
           <div className="section-sponsor-card" data-aos="fade-right">
             <img src={"/img/hubsoln.jpeg"} className="i hubsolutions" alt="hub solutions" />
-          </div>
+          </div> */}
           
           <div className="section-sponsor-card" data-aos="fade-right">
-            <img src={"/img/ovi.jpg"} className="i ovi" alt="ovi design academy" />
+            <img src={"/img/DIDO.png"} className="i ovi" alt="ovi design academy" />
           </div>
           {/* <div className="section-sponsor-card" data-aos="fade-right">
             <img src={people_logo} alt="people's logo" className="i some-large" />
