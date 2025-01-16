@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import './Loader.css';
+import './loader.css';
 
 const Loader: React.FC = () => {
   return (
