@@ -39,7 +39,8 @@ const DegreeOptions: Option[] = [
   { value: "1", label: "B.Tech" },
   { value: "2", label: "B.E" },
   { value: "3", label: "B.Sc" },
-  { value: "4", label: "B.Com" }
+  { value: "4", label: "B.Com" },
+  { value: "5", label: "B.Arch"}
 ];
 const DeptOptions: Option[] = [
   { value: "1", label: "Artificial Intelligence and Data Science" },
@@ -191,11 +192,11 @@ const LoginForm: React.FC = () => {
           uid: user.uid,
           email: data.email,
           name: data.fullName,
-          department: selectedDept?.value,
+          department: selectedDept?.label,
           year: selectedYear?.value,
           contactNo: data.contactNo,
           collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-          degree: selectedDegree?.value,
+          degree: selectedDegree?.label,
         });
   
         await fetch("/api/qrcode", {
@@ -205,11 +206,11 @@ const LoginForm: React.FC = () => {
             uid: user.uid,
             name: data.fullName,
             email: data.email,
-            department: selectedDept?.value,
+            department: selectedDept?.label,
             year: selectedYear?.value,
             contactNo: data.contactNo,
             collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-            degree: selectedDegree?.value,
+            degree: selectedDegree?.label,
           }),
         });
       }

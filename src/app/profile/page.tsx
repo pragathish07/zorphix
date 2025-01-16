@@ -37,13 +37,13 @@ const Profile: React.FC = () => {
                     console.log(data);
                     setUserData(data[0]);
                     console.log(process.env.CLOUDINARY_CLOUD_NAME)
-                    const cloudinaryUrl = `https://res.cloudinary.com/dgcmiagav/image/upload/v1/zorphix/qrcodes/${uid}`;
+                    const cloudinaryUrl = `https://res.cloudinary.com/djb1txmhn/image/upload/v1/zorphix/qrcodes/${uid}`;
                     setQrCodeUrl(cloudinaryUrl);
                 } catch (error) {
                     console.error("Error fetching user data:", error);
                 }
             } else {
-                router.push("/login");
+                router.push("/auth/login");
             }
         });
 
