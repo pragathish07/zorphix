@@ -6,9 +6,13 @@ import { motion, useScroll } from "framer-motion";
 import Main from './components/main/main';
 import Loader from "./components/loader/loader";
 import Counter from "./components/main/counter";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "@/firebaseConfig";
 
 
 const App: React.FC = () => {
+
+  const [user]=useAuthState(auth);
 
   const { scrollYProgress } = useScroll();
   const [isLoading, setIsLoading] = useState<boolean>(true);
