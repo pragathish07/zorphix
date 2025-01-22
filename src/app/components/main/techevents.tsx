@@ -129,10 +129,10 @@ const TechEvents = () => {
                       toggle(
                         "Thesis-Precized",
                         "Inspire us to redefine the tech landscape. Thesis Precised is your platform to present and engage in the presentation as they delve into the captivating realm of your thesis precisely. Emerge victorious, and you take home the title of BEST PAPER.",
-                        "Harini A",
-                        "Poovizhi P",
-                        "+91 99520 51446",
-                        "+91 91500 02718",
+                        "Sathyaram P",
+                        "",
+                        "+91 90035 60430",
+                        "",
                         "forms.gle/G9GTWJTvh4SZGvqJA",
                         "To be Announced"
                       )
@@ -176,10 +176,10 @@ const TechEvents = () => {
                       toggle(
                         "Coin Quest",
                         "Ever wanted to participate in a digital tech game event? Here's your chance! Participants play a series of wordplay, quizzes, and games that advance through rounds. Get ready to tech it up at Coin Quest.",
-                        "Ram Kumar M",
-                        "Priyadharshini N",
-                        "+91 63809 41457",
-                        "+91 73959 30205",
+                        "Yalancy",
+                        "Meenakshi",
+                        "+91 89394 30404",
+                        "+91 96000 50186",
                         "forms.gle/P3QNm3woRoMd6bF66",
                         "To be Announced"
                       )
@@ -207,15 +207,12 @@ const TechEvents = () => {
                 </div>
                 <h4 className="card__heading">
                   <span className="card__heading-span card__heading-span--1 bold-white">
-                    Plutus
+                  Reverse coding
                   </span>
                 </h4>
                 <div className="card__details">
                   <p>
-                    66% of all statistics are made up. And we just made this up
-                    too. Plutus is an event based on the popular party game 2
-                    Facts 1 Lie, albeit with a business touch to it! Unravel
-                    the truth from a web of captivating statements.
+                  Join us for an exciting Reverse Coding Challenge! Dive into the world of problem-solving where the output is known, and your task is to unravel the logic behind it. Test your creativity and analytical thinking in a fun and competitive environment.
                   </p>
                 </div>
               </div>
@@ -226,12 +223,12 @@ const TechEvents = () => {
                       className="btn btn--white"
                       onClick={() =>
                         toggle(
-                          "Plutus",
-                          "66% of all statistics are made up. And we just made this up too. Plutus is an event based on the popular party game 2 Facts 1 Lie, albeit with a business touch to it! Unravel the truth from a web of captivating statements.",
-                          "Vinoth S",
-                          "Adithya B",
-                          "+91 93425 37734",
-                          "+91 73390 44512",
+                          "Reverse Coding",
+                          "Join us for an exciting Reverse Coding Challenge! Dive into the world of problem-solving where the output is known, and your task is to unravel the logic behind it. Test your creativity and analytical thinking in a fun and competitive environment.",
+                          "Swetha",
+                          "Yuvarani",
+                          "+91 85248 46026",
+                          "+91 86808 68188",
                           "forms.gle/2r5S34Nfzvnivrzx6",
                           "To be Announced"
                         )
@@ -299,6 +296,51 @@ const TechEvents = () => {
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
+                <div className="card__picture card__picture--5-tech">
+                  &nbsp;
+                </div>
+                <h4 className="card__heading">
+                  <span className="card__heading-span card__heading-span--1 bold-white">
+                  Caseathon
+                  </span>
+                </h4>
+                <div className="card__details">
+                  <p>
+                  "Got what it takes to crack the toughest challenges? Dive into a world where tech sparks innovation, business fuels strategy, and YOU become the game-changer!"
+                  </p>
+                </div>
+              </div>
+              <div className="card__side card__side--back card__side--back-1">
+                <div className="card__cta">
+                  <div className="card__price-box">
+                    <p
+                      className="btn btn--white"
+                      onClick={() =>
+                        toggle(
+                          "Caseathon",
+                          "Are you ready to dive into a world where melodies are composed by lines of code, and rhythm is dictated by algorithms? Here, the tech enthusiast delves into coding against the distraction of music. Let the beats and coding begin!",
+                          "Sahanaa",
+                          "Chandrahashini",
+                          "+91 89397 83181",
+                          "+91 91506 47414",
+                          "forms.gle/KQrFXKMjRHmNKVMC6",
+                          "To be Announced"
+                        )
+                      }
+                    >
+                      Know More
+                    </p>
+                  </div>
+                  <a className="btn btn--white" href="/auth/login">
+                    Register Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-1-of-3">
+            <div className="card" data-aos="zoom-in">
+              <div className="card__side card__side--front">
                 <div className="card__picture card__picture--6-tech">
                   &nbsp;
                 </div>
@@ -325,10 +367,10 @@ const TechEvents = () => {
                         toggle(
                           "FLIP IT & QUIZ IT",
                           "Prepare for an event of mind-bending scenarios, where the participants will be presented with complex situational questions that demand creative problem-solving, but the twist lies in who can master the art of bottle flipping to secure their chance to answer first. Join us for a journey of intellect and strategy at 'Flip it & Quiz it'.",
-                          "Navinaa G",
-                          "Mahmoodah Hafsah S",
-                          "+91 90802 30690",
-                          "+91 99402 61966",
+                          "Pradeep",
+                          "Devadharshini",
+                          "+91 93604 94919",
+                          "+91 77081 17930",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
                           "To be Announced"
                         )
@@ -378,10 +420,10 @@ const TechEvents = () => {
                         toggle(
                             "VIRTUOSO",
                             "Paying homage to Vijay TV's iconic Start Music, we're raising the stakes in music games. Evoke your inner music detective in a dynamic guessing game event with three rounds of song and melody challenges. Join us for a day filled with musical excitement at Virtuoso!",
-                            "Mathuku Jayasimha Reddy",
-                            "Abirami S",
-                            "+91 83412 73412",
-                            "+91 73582 90831",
+                            "Gokula krishnan",
+                            "Sundara Vinayagam",
+                            "+91 97879 38290",
+                            "+91 84382 59479",
                             "forms.gle/2r5S34Nfzvnivrzx6",
                             "To be Announced"
                         )
