@@ -291,8 +291,8 @@ const TechEvents = () => {
                   </a>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
@@ -337,7 +337,18 @@ const TechEvents = () => {
                 </div>
               </div>
             </div>
-          </div>
+        </div>
+      </div>
+      </div>
+                      
+
+
+          
+           
+          
+
+      <div className="sm-padding" id="section-tours">
+        <div className="row">
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
@@ -385,12 +396,9 @@ const TechEvents = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+         
       </div>
 
-      <div className="sm-padding" id="section-tours">
-        <div className="row">
         <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
@@ -440,7 +448,11 @@ const TechEvents = () => {
             </div>
           </div>
         </div>
-      </div>    
+        
+
+      </div>
+      
+         
 
       {/* <PopupModal isOpen={isPopupVisible} toggle={() => setPopupVisible(!isPopupVisible)} eventInfo={eventInfo} /> */}
       <PopupModal
