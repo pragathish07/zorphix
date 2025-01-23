@@ -95,15 +95,12 @@ const Workshops: React.FC = () => {
               <div className="card__picture card__picture--2-workshop">&nbsp;</div>
               <h4 className="card__heading">
                 <span className="card__heading-span card__heading-span--1 bold-white">
-                  Ui/Ux Feat. Figma
+                  Web Development
                 </span>
               </h4>
               <div className="card__details">
                 <p>
-                  Discover this exceptional collaborative process in UI/UX workshops to elevate digital product design.
-                  By the end of this workshop, you'll not only possess the technical skills to wield design tools but also
-                  the mindset to shape the future of user-centric innovation. Engage in this notable collaborative approach
-                  during UI/UX workshops to refine the design of digital solutions.
+                Unlock the power of web technologies in our hands-on Web Development Workshop! Learn to build stunning websites from scratch with HTML, CSS, and JavaScript. Dive into responsive design, explore best practices, and create interactive web pages. Guided by experienced mentors, this workshop is perfect for beginners and budding developers. Gain practical skills to launch your web development journey or enhance your portfolio. Don’t miss this opportunity to bring your ideas to life on the web!
                 </p>
               </div>
             </div>
@@ -149,9 +146,7 @@ const Workshops: React.FC = () => {
               </h4>
               <div className="card__details">
                 <p>
-                  Unlock financial empowerment through our trading and investment workshop. Whether you're a pro or a newcomer,
-                  gain the tools to navigate finance confidently. Don't miss the chance to boost your financial literacy and step
-                  into the world of trading and investment. Get ready to go from zero to hero!
+                Step into the world of finance with our Trading and Investment Workshop! Learn the fundamentals of stock markets, trading strategies, and smart investment techniques. Discover how to analyze market trends, manage risks, and build a strong investment portfolio. This workshop is designed for beginners and aspiring investors looking to gain practical insights. Led by experienced financial experts, you'll get hands-on experience with tools and platforms used in the industry. Unlock the secrets to financial growth and secure your future!
                 </p>
               </div>
             </div>

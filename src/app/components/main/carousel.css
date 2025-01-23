@@ -1,0 +1,97 @@
+.carouselContainer {
+    width: 100%;
+    max-width: 900px; /* Adjust this as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .carousel {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    text-align: center;
+  }
+  
+  .carousel_image {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    filter: invert(100%); /* Makes the controls visible on dark/light backgrounds */
+    opacity: 0.8;
+  }
+  
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 1;
+  }
+  
+  .carousel-indicators {
+    bottom: 10px;
+  }
+  
+  .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    margin: 0 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-indicators .active {
+    opacity: 1;
+    background-color: #007bff;
+  }
+  
+.swiper-button-prev,
+.swiper-button-next {
+  color: white; 
+  
+  padding: 20px;
+  border-radius: 50%; 
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  
+  
+}
+
+/* Position Adjustments */
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+
+/* Custom Pagination Dots */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: white; /* Change dot color */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  
+  .swiper-pagination-bullet-active {
+    background-color: #fff; /* Change active dot color */
+    width: 40px;
+    border-radius: 100rem ;
+    opacity: 1;
+
+  }
+  

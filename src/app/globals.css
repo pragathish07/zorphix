@@ -903,13 +903,14 @@
     transform: translateY(-3px);
     -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    color: #fff;
+    color: #777;
   }
   
   .btn:hover::after {
     -webkit-transform: scaleX(1.4) scaleY(1.6);
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
+    color: #ee82ee;
   }
   
   .btn:active,
@@ -1179,9 +1180,9 @@
         right bottom,
         from(#10002b),
         to(#240046)),
-      url(../../public/img/figma.jpg);
+      url(../../public/img/web-dev.jpg);
     background-image: linear-gradient(to right bottom, #10002b, #240046),
-      url(../../public/img/figma.jpg);
+      url(../../public/img/web-dev.jpg);
   }
   
   .card__heading {
