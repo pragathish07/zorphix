@@ -13,7 +13,7 @@ const Counter: React.FC = () => {
   const interval = useRef<NodeJS.Timeout | null>(null);
 
   const startTimer = () => {
-    const countdownDate = new Date('February 6, 2025 00:00:00').getTime();
+    const countdownDate = new Date('February 18, 2025 00:00:00').getTime();
 
     interval.current = setInterval(() => {
       const now = new Date().getTime();
