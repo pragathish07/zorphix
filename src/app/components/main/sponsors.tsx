@@ -29,9 +29,9 @@ const Sponsors: React.FC = () => {
             <img src={"/img/hubsoln.jpeg"} className="i hubsolutions" alt="hub solutions" />
           </div> */}
           
-          <div className="section-sponsor-card" data-aos="fade-right">
+          {/* <div className="section-sponsor-card" data-aos="fade-right">
             <img src={"/img/DIDO.png"} className="i ovi" alt="ovi design academy" />
-          </div>
+          </div> */}
           {/* <div className="section-sponsor-card" data-aos="fade-right">
             <img src={people_logo} alt="people's logo" className="i some-large" />
           </div>
