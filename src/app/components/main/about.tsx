@@ -42,11 +42,11 @@ const About: React.FC = () => {
             />
 
             <img
-              srcSet={`${"/img/IMG_4841.jpg"} 300w, ${"/img/IMG_4841.jpg"} 1000w`}
+              srcSet={`${"/img/IMG_3946.jpg"} 300w, ${"/img/IMG_3946.jpg"} 1000w`}
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
               alt="Pic33"
               className="composition__photo composition__photo--p3"
-              src={"/img/IMG_4841.jpg"}
+              src={"/img/IMG_3946.jpg"}
             />
           </div>
         </div>

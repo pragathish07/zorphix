@@ -19,6 +19,7 @@ const images = [
   "event13.jpg",
   "event14.jpg",
   "event15.jpg",
+  "event16.jpg",
 ];
 
 const CarouselComponent: React.FC = () => {

@@ -394,7 +394,7 @@ main.sign-up-mode .carousel {
 .scrolling-images {
     display: flex;
     flex-direction: column;
-    animation: scrollAnimation 250s linear infinite;
+    animation: scrollAnimation 200s linear infinite;
 }
 
 @keyframes scrollAnimation {
@@ -407,6 +407,9 @@ main.sign-up-mode .carousel {
     }
 }
 
+.paused {
+    animation-play-state: paused !important;
+}
 
 @media (max-width: 850px) {
     .login-box {
