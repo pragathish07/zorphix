@@ -1,3 +1,4 @@
+
 [data-icon]:before {
     font-family: "Signika" !important;
     content: attr(data-icon);
@@ -563,6 +564,13 @@
   .icon-basic-world:before {
     content: "\e028";
   }
+
+
+  .logo,
+.logo-text {
+  will-change: transform, opacity;
+}
+
   
   @-webkit-keyframes moveInLeft {
     0% {

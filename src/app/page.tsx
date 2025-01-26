@@ -8,8 +8,11 @@ import Loader from "./components/loader/loader";
 import Counter from "./components/main/counter";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "@/firebaseConfig";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
+gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
 
@@ -19,6 +22,7 @@ const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const checkboxRef = useRef<HTMLInputElement | null>(null);
+
 
   const toggleCheckbox = () => {
     if (checkboxRef.current) {
@@ -37,10 +41,13 @@ const App: React.FC = () => {
   }, []);
 
 
+
+
   return  isLoading ? (
       <Loader />
     ) : (
       <div id="home" className="home">
+       
         <div id="blur">
           <div className="navigation">
             <input
@@ -116,15 +123,16 @@ const App: React.FC = () => {
               </video>
             </div>
           </div>
-  
+            
           <div className="header" id="header">
             <div className="header__logo-box">
               <img className="citlogo" src={"/img/NEW-LOGO-CIT.png"} alt="clg-logo" />
             </div>
   
-            <div className="header__text-box">
+            <div className="header__text-box" >
               <div className="logos">
                 <img
+                  
                   className="heading-primary--sub zor"
                   src={"/img/zologo.png"}
                   alt="new-logo"
@@ -149,7 +157,7 @@ const App: React.FC = () => {
               <Counter/>
             </div>
           </div>
-  
+          
           <Main />
         </div>
         <motion.div
@@ -158,6 +166,7 @@ const App: React.FC = () => {
           initial={{ scaleX: 0 }}
         />
       </div>
+       
     );
   };
   

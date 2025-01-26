@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import './login.css'; 
 import { doc, setDoc } from "@firebase/firestore";
 import { v4 as uuid } from 'uuid';
+import LoginCarousel from '../../components/main/LoginCarousel';
 
 
 interface UserData {
@@ -33,30 +34,6 @@ const yearOptions: Option[] = [
   { value: "2", label: "Year 2" },
   { value: "3", label: "Year 3" },
   { value: "4", label: "Year 4" }
-];
-
-const DegreeOptions: Option[] = [
-  { value: "1", label: "B.Tech" },
-  { value: "2", label: "B.E" },
-  { value: "3", label: "B.Sc" },
-  { value: "4", label: "B.Com" },
-  { value: "5", label: "B.Arch"}
-];
-const DeptOptions: Option[] = [
-  { value: "1", label: "Artificial Intelligence and Data Science" },
-  { value: "2", label: "Biomedical Engineering" },
-  { value: "3", label: "Chemical Engineering"},
-  { value: "4", label: "Civil Engineering"},
-  { value: "5", label: "Computer Science and Business Systems" },
-  { value: "6", label: "Computer Science and Design"},
-  { value: "7", label: "Computer Science and Engineering" },
-  { value: "8", label: "Computer Science and Engineering (Artificial Intelligence and Machine Learning)" },
-  { value: "9", label: "Computer Science and Engineering (Cyber Security)" },
-  { value: "10", label: "Electrical and Electronics Engineering" },
-  { value: "11", label: "Electronics and Communication Engg" },
-  { value: "12", label: "Mechanical Engineering"},
-  { value: "13", label: "Mechatronics Engineering"},
-  { value: "14", label: "Information and Technology" },
 ];
 
 
@@ -86,8 +63,6 @@ const LoginForm: React.FC = () => {
   const [selectedCollege, setSelectedCollege] = useState<SingleValue<Option>>(null);
   const [otherCollege, setOtherCollege] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<SingleValue<Option>>(null);
-  const [selectedDegree, setSelectedDegree] = useState<SingleValue<Option>>(null);
-  const [selectedDept, setSelectedDept] = useState<SingleValue<Option>>(null);
 
 
   const handleCollegeChange = (option: SingleValue<Option>) => {
@@ -105,13 +80,6 @@ const LoginForm: React.FC = () => {
     setSelectedYear(option);
   };
 
-  const handleDegreeChange = (option: SingleValue<Option>) => {
-    setSelectedDegree(option);
-  };
-
-  const handleDeptChange = (option: SingleValue<Option>) => {
-    setSelectedDept(option);
-  };
 
 
   const toggleMode = (event: FormEvent) => {
@@ -149,31 +117,24 @@ const LoginForm: React.FC = () => {
     else if (data.password.length < 6) errors.password = "Password must be at least 6 characters long";
   
     if (!isSignUpMode) {
-      if (!data.fullName || !selectedCollege || !selectedDegree || !selectedYear || !selectedDept || !data.contactNo) {
-        setError("All fields are required for registration");
-        return false;
-      }
-
-      if (selectedCollege.value === "other" && !otherCollege) {
-        setError("Please enter your college name");
-        return false;
-      }
-
-      if (data.password.length < 6) {
-        setError("Password must be at least 6 characters long");
-        return false;
-      }
-
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        setError("Please enter a valid email address");
-        return false;
-      }
+      if (!data.fullName) errors.fullName = "Full name is required";
+      if (!selectedCollege) errors.college = "College is required";
+      if (selectedCollege?.value === "other" && !otherCollege.trim()) errors.college = "Please enter your college name";
+      if (!data.degree) errors.degree = "Degree is required";
+      if (!selectedYear) errors.year = "Year is required";
+      if (!data.dept) errors.dept = "Department is required";
+      if (!data.contactNo) errors.contactNo = "Contact number is required";
+      else if (!/^\d{10}$/.test(data.contactNo)) errors.contactNo = "Contact number must be 10 digits";
     }
-
-    return true;
+  
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
   };
+  
+  
+  
 
-  const handleSubmit = async (e:FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
   
@@ -187,16 +148,17 @@ const LoginForm: React.FC = () => {
       } else {
         const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
         const user = userCredential.user;
+  
         const userUuid = uuid();
-        const res2=await setDoc(doc(db, "users", userUuid), {
-          uid: user.uid,
+        await setDoc(doc(db, "users", userUuid), {
+          uid: userUuid,
           email: data.email,
           name: data.fullName,
-          department: selectedDept?.label,
+          department: data.dept,
           year: selectedYear?.value,
           contactNo: data.contactNo,
           collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-          degree: selectedDegree?.label,
+          degree: data.degree,
         });
   
         await fetch("/api/qrcode", {
@@ -206,17 +168,16 @@ const LoginForm: React.FC = () => {
             uid: user.uid,
             name: data.fullName,
             email: data.email,
-            department: selectedDept?.label,
+            department: data.dept,
             year: selectedYear?.value,
             contactNo: data.contactNo,
             collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-            degree: selectedDegree?.label,
+            degree: data.degree,
           }),
         });
       }
       router.push("/");
     } catch (err) {
-      console.log(err);
       const errorMessage =
         err instanceof Error
           ? err.message
@@ -224,12 +185,6 @@ const LoginForm: React.FC = () => {
       setCommonError(errorMessage);
     }finally{
       setLoading(false)
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
     }
   };
 
@@ -243,7 +198,7 @@ const LoginForm: React.FC = () => {
     <div className={`login-box ${isSignUpMode ? 'sign-up-mode' : ''}`}>
     <div className="inner-box">
       <div className="forms-wrap">
-        <form id="login" autoComplete="off" className="sign-in-form" onSubmit={handleSubmit}  onKeyDown={handleKeyDown}>
+        <form id="login" autoComplete="off" className="sign-in-form" onSubmit={handleSubmit}>
           <div className="login-logo">
             <img src="/img/loginlog.png" alt="easyclass" />
           </div>
@@ -251,8 +206,7 @@ const LoginForm: React.FC = () => {
           <div className="heading">
             <h2>{isSignUpMode ? "Welcome back" : "Get registered"}</h2>
             <h6>{isSignUpMode ? "Not registered yet?" : "Already registered?"}</h6>
-
-            <button type="button" className="toggle link-button" onClick={toggleMode}>
+            <button className="toggle link-button" onClick={toggleMode}>
               {isSignUpMode ? "Sign up" : "Sign in"}
             </button>
           </div>
@@ -267,7 +221,6 @@ const LoginForm: React.FC = () => {
                       className="input-field"
                       value={data.fullName}
                       onChange={(e) => setData({ ...data, fullName: e.target.value })}
-                      required
                       placeholder="Full name"
                     />
                   
@@ -283,7 +236,6 @@ const LoginForm: React.FC = () => {
                     options={collegeOptions}
                     value={selectedCollege}
                     onChange={handleCollegeChange}
-                    required
                     placeholder="Select your college"
                   />
                   {fieldErrors.college && <p className="err-txt-select">{fieldErrors.college}</p>}
@@ -296,7 +248,6 @@ const LoginForm: React.FC = () => {
                       className="input-field"
                       value={otherCollege || ""}
                       onChange={handleOtherCollege}
-                      required
                       placeholder="Enter your college name"
                     />
                     {fieldErrors.college && <p className="error-text">{fieldErrors.college}</p>}
@@ -305,12 +256,11 @@ const LoginForm: React.FC = () => {
 
                 <div className="input-wrap div-flex">
                   <div>
-                  <Select
-                      className="college-select year-field"
-                      options={DegreeOptions}
-                      value={selectedDegree}
-                      onChange={handleDegreeChange}
-                      required
+                    <input
+                      type="text"
+                      className="input-field degree-field"
+                      value={data.degree}
+                      onChange={(e) => setData({ ...data, degree: e.target.value })}
                       placeholder="Degree"
                     />
                     {fieldErrors.degree && <p className="error-text">{fieldErrors.degree}</p>}
@@ -321,7 +271,6 @@ const LoginForm: React.FC = () => {
                       options={yearOptions}
                       value={selectedYear}
                       onChange={handleYearChange}
-                      required
                       placeholder="Year"
                     />
                     {fieldErrors.year && <p className="err-txt-select">{fieldErrors.year}</p>}
@@ -329,18 +278,14 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="input-wrap">
-                
-                
-                    <Select
-                      className="college-select year-field"
-                      options={DeptOptions}
-                      value={selectedDept}
-                      onChange={handleDeptChange}
-                      required
-                      placeholder="Dept"
-                    />
-         {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
-
+                  <input
+                    type="text"
+                    className="input-field"
+                    value={data.dept}
+                    onChange={(e) => setData({ ...data, dept: e.target.value })}
+                    placeholder="Department"
+                  />
+                  {fieldErrors.dept && <p className="error-text">{fieldErrors.dept}</p>}
                 </div>
 
                 <div className="input-wrap">
@@ -349,7 +294,6 @@ const LoginForm: React.FC = () => {
                     className="input-field"
                     value={data.contactNo}
                     onChange={(e) => setData({ ...data, contactNo: e.target.value })}
-                    required
                     placeholder="Contact no"
                   />
                   {fieldErrors.contactNo && <p className="error-text">{fieldErrors.contactNo}</p>}
@@ -363,7 +307,6 @@ const LoginForm: React.FC = () => {
                 className="input-field"
                 value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
-                required
                 placeholder="Email"
               />
               {fieldErrors.email && <p className="error-text">{fieldErrors.email}</p>}
@@ -375,7 +318,6 @@ const LoginForm: React.FC = () => {
                 className="input-field"
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
-                required
                 placeholder="Password"
               />
               {fieldErrors.password && <p className="error-text">{fieldErrors.password}</p>}
@@ -397,24 +339,16 @@ const LoginForm: React.FC = () => {
           </div>
         </form>
       </div>
-      <div className="login-carousel">
-      <div className="overflow-scroll">
-        <div className="scrolling-images">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image.src}
-              alt={`Image ${index + 1}`}
-              className={`image ${image.className} ${activeImage === index + 1 ? 'show' : ''}`}
-            />
-          ))}
-        </div>
+
+      {/* login carousel */}
+      {/* stop the current image on hover */}
+      
+        <LoginCarousel images={images} />
         {commonError && <div className="common-error">{commonError}</div>}
       </div>
     </div>
 
-    </div>
-  </div>
+    
 </main>
 
   );
@@ -1359,7 +1293,7 @@ const images = [
   { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
   { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
   { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
+/*   { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
   { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
   { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
   { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
@@ -1432,5 +1366,5 @@ const images = [
   { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
   { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
   { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" }
+  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" } */
 ];
