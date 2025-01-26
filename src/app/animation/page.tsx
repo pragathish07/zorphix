@@ -5,10 +5,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Stage, Environment } from "@react-three/drei";
-import * as THREE from 'three';
+
 import "./ImageAnimation.css";
-import Spline from '@splinetool/react-spline';
-import { m } from "framer-motion";
+
 
 
 gsap.registerPlugin(ScrollTrigger);
