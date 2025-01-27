@@ -35,21 +35,13 @@ const Footer: React.FC = () => {
                                 >
                                     {/* {<img className="footer__img"
                                     src={"/img/insta-footer.png"}/>} */}
-                                    <div className='instagram-wrapper'>
+                                    
                                     <FaInstagram className='icon instagram'/>
 
-                                    </div>
+                                
 
                                 </a>
-                                <div className="wrapper">
-                                    <a href="https://instagram.com/" target="_instagram" aria-label="A great place to find out what friends are up to!">
-                                        <div className="bg">
-                                        <div className="inner">
-                                            <FaInstagram className="fab fa-instagram" />
-                                        </div>
-                                        </div>
-                                    </a>
-                                    </div>
+                                
                                 <a
                                     href="mailto:zorphix@citchennai.net"
                                     target="_blank"
