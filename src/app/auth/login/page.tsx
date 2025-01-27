@@ -357,6 +357,16 @@ const LoginForm: React.FC = () => {
 export default LoginForm;
 
 
+const images = [
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+ { src:"/img/login.jpg",className:"image img-1 show"},
+]
+
 
 
 
@@ -1276,7 +1286,7 @@ const collegeOptions: Option[] = [
 ];
 
 
-const images = [
+/* const images = [
   { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
   { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
   { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
@@ -1293,78 +1303,6 @@ const images = [
   { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
   { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
   { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-/*   { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" },
-  { src: "/img/eventposters/xcoders.jpg", className: "image img-1 show" },
-  { src: "/img/eventposters/thesis-precised.jpg", className: "image img-2 show" },
-  { src: "/img/eventposters/coin-quest.jpg", className: "image img-3 show" },
-  { src: "/img/eventposters/plutus.jpg", className: "image img-4 show" },
-  { src: "/img/eventposters/algo-rhythms.jpg", className: "image img-5 show" },
-  { src: "/img/eventposters/flipitquizit.jpg", className: "image img-6 show" },
-  { src: "/img/eventposters/virtuoso.jpg", className: "image img-7 show" },
-  { src: "/img/eventposters/ui-ux.jpg", className: "image img-8 show" },
-  { src: "/img/eventposters/trading-and-investment.jpg", className: "image img-9 show" } */
-];
+
+
+]; */
