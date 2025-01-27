@@ -25,30 +25,32 @@ const About: React.FC = () => {
         </div>
         <div className="col-1-of-2">
           <div className="composition">
-            <img
-              srcSet={`${"/img/IMG_4809.jpg"} 300w, ${"/img/IMG_4809.jpg"} 1000w`}
+          <img
+              srcSet={`${"/img/about1.jpg"} 300w, ${"/img/about1.jpg"} 1000w`}
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
               alt="Pic1"
               className="composition__photo composition__photo--p1"
-              src={"/img/IMG_4809.jpg"}
+              src={"/img/about1.jpg"}
             />
 
             <img
-              srcSet={`${"/img/DSC_0548.jpg"} 300w, ${"/img/DSC_0548.jpg"} 1000w`}
+              srcSet={`${"/img/about2.jpg"} 300w, ${"/img/about2.jpg"} 1000w`}
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
               alt="Photo2"
               className="composition__photo composition__photo--p2"
-              src={"/img/DSC_0548.jpg"}
+              src={"/img/about2.jpg"}
             />
 
             <img
-              srcSet={`${"/img/IMG_3946.jpg"} 300w, ${"/img/IMG_3946.jpg"} 1000w`}
+              srcSet={`${"/img/about3.jpg"} 300w, ${"/img/about3.jpg"} 1000w`}
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
               alt="Pic33"
               className="composition__photo composition__photo--p3"
-              src={"/img/IMG_3946.jpg"}
+              src={"/img/about3.jpg"}
             />
+            
           </div>
+          
         </div>
       </div>
     </div>
