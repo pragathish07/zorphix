@@ -1,4 +1,5 @@
 
+
 [data-icon]:before {
     font-family: "Signika" !important;
     content: attr(data-icon);
@@ -1126,6 +1127,17 @@
         right bottom,
         from(#10002b),
         to(#240046)),
+      url(../../public/img/algo1.jpg);
+    background-image: linear-gradient(to right bottom, #10002b, #240046),
+      url(../../public/img/algo1.jpg);
+  }
+
+  .card__picture--9-tech {
+    background-image: -webkit-gradient(linear,
+        left top,
+        right bottom,
+        from(#10002b),
+        to(#240046)),
       url(../../public/img/plutus.jpg);
     background-image: linear-gradient(to right bottom, #10002b, #240046),
       url(../../public/img/plutus.jpg);
@@ -1137,9 +1149,9 @@
         right bottom,
         from(#10002b),
         to(#240046)),
-      url(../../public/img/algo1.jpg);
+      url(../../public/img/caseathon.jpg);
     background-image: linear-gradient(to right bottom, #10002b, #240046),
-      url(../../public/img/algo1.jpg);
+      url(../../public/img/caseathon.jpg);
   }
   
   .card__picture--6-tech {
@@ -1148,9 +1160,9 @@
         right bottom,
         from(#10002b),
         to(#240046)),
-      url(../../public/img/ftb1.png);
+      url(../../public/img/virtuoso.jpg);
     background-image: linear-gradient(to right bottom, #10002b, #240046),
-      url(../../public/img/ftb1.png);
+      url(../../public/img/virtuoso.jpg);
   }
   
   .card__picture--4-nontech {
@@ -1159,9 +1171,9 @@
         right bottom,
         from(#10002b),
         to(#240046)),
-      url(../../public/img/virtuoso.jpg);
+      url(../../public/img/ftb1.png);
     background-image: linear-gradient(to right bottom, #10002b, #240046),
-      url(../../public/img/virtuoso.jpg);
+      url(../../public/img/ftb1.png);
   }
   
   .single-card {
@@ -1462,7 +1474,7 @@
   .box {
     border: 2px double #c77dff;
     padding: 10px;
-    width: 200px;
+    width: 300px;
     border-radius: 10px;
     transition: all 0.2s;
   }
@@ -2745,6 +2757,121 @@
     to{
       transform: rotate(1turn);
     }
+  }
+  
+
+
+  /* footer styles */
+
+  .icon {
+    font-size: 5rem;
+    transition: all 0.3s ease-in-out;
+    margin: 20px;
+  }
+  
+  .instagram-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Default Gray Instagram Icon */
+  .instagram {
+    color: white;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Gradient Hover Effect */
+  .instagram-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Make Icon Transparent & Show Gradient on Hover */
+  .instagram-wrapper:hover::after {
+    opacity: 1;
+  }
+  
+  .instagram-wrapper:hover .instagram {
+    color: white;
+  }
+  
+
+  a {
+    color: #000;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    font-size: 50px;
+  
+    .inner {
+      background: #fcfcfc;
+      mix-blend-mode: screen;
+      display: block;
+      width: 43.75px;
+    }
+  
+    .bg {
+      width: calc(100% - 1px);
+      background: #000;
+      text-align: center;
+      display: block;
+      height: 50px;
+  
+      &::before {
+        content: "";
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+      }
+    }
+  
+    &:hover .bg::before {
+      opacity: 1;
+    }
+  }
+  
+  .wrapper {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Mail Turns Red on Hover */
+  .mail {
+    color: white;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .mail:hover {
+    color: red;
   }
   
   

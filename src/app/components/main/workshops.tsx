@@ -111,14 +111,14 @@ const Workshops: React.FC = () => {
                     className="btn btn--white"
                     onClick={() =>
                       toggle(
-                        "UI/UX Feat. Figma",
-                        "Discover this exceptional collaborative process in UI/UX workshops to elevate digital product design. By the end of this workshop, you'll not only possess the technical skills to wield design tools but also the mindset to shape the future of user-centric innovation. Engage in this notable collaborative approach during UI/UX workshops to refine the design of digital solutions.",
-                        "Jey Shreemen GR",
-                        "P Athulya Kairali",
-                        "+91 76048 13964",
-                        "+91 98400 92758",
+                        "Web Development",
+                        "Unlock the power of web technologies in our hands-on Web Development Workshop! Learn to build stunning websites from scratch with HTML, CSS, and JavaScript. Dive into responsive design, explore best practices, and create interactive web pages. Guided by experienced mentors, this workshop is perfect for beginners and budding developers. Gain practical skills to launch your web development journey or enhance your portfolio. Don’t miss this opportunity to bring your ideas to life on the web!",
+                        "Kavya U",
+                        "Ezhil Srikanth M",
+                        "+91 98405 21104",
+                        "+91 93605 13851",
                         "forms.gle/RqExTs9gLNsFEPCHA",
-                        "ILP - IOT Lab"
+                        "To be Announced"
                       )
                     }
                   >
@@ -159,12 +159,12 @@ const Workshops: React.FC = () => {
                       toggle(
                         "Trading & Investment",
                         "Unlock financial empowerment through our trading and investment workshop. Whether you're a pro or a newcomer, gain the tools to navigate finance confidently. Don't miss the chance to boost your financial literacy and step into the world of trading and investment. Get ready to go from zero to hero!",
-                        "Prathap D",
-                        "Madhukeshwar MS",
-                        "+91 63797 54326",
-                        "+91 80728 92365",
+                        "Nandha Gopala Krishnan",
+                        "Abhimanyu B",
+                        "+91 96774 48536",
+                        "+91 94961 66575",
                         "forms.gle/G9GTWJTvh4SZGvqJA",
-                        "ILP - IOT Lab"
+                        "To be Announced"
                       )
                     }
                   >

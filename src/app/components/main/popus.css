@@ -40,5 +40,5 @@ div > h2,p{
     transform: translateY(-3px);
     -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    color: #0c0b0b;
+    color: #ccc;
   }
