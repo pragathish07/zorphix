@@ -45,10 +45,10 @@ const ImageAnimation = () => {
 
       // Scale up the logo from the center
       tl.to(logoRef.current, {
-        scale: 30,
+        scale: 20,
         opacity:0,
         scrub: true,
-        ease:"power4.Out",
+        ease:"power2.inOut",
         duration: 2,
         
       });
@@ -128,13 +128,17 @@ const ImageAnimation = () => {
       
 
       <Canvas camera={{ position: [0, 0, 10] }} ref={logoRef} className="logo-container">
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[2, 5, 3]} intensity={1.5} />
-          <Environment preset="night" />
+          <ambientLight intensity={1} />
+          <directionalLight position={[2, 10, 10]} intensity={0.5} />
+          <directionalLight position={[-2, -10, 10]} intensity={0.5} />
+          
+           
           <Stage>
             <LogoModel/>
+
           </Stage>
-          <OrbitControls enableZoom={false} enablePan={true} enableRotate/>
+          
+          <OrbitControls enableZoom={false} enablePan={true} enableRotate={true}/>
           
           
     </Canvas>
@@ -161,19 +165,8 @@ const ImageAnimation = () => {
 
 
 const LogoModel = () =>  {
-  const { scene } = useGLTF("/zor.glb"); 
-/*   const modelRef = useRef<THREE.Mesh>(null);
+  const { scene } = useGLTF("/z3.glb"); 
 
-  // Handle floating effect & mouse-based movement
-  useFrame(({ mouse }) => {
-    if (modelRef.current) {
-      
-      // Mouse-based rotation (subtle effect)
-      modelRef.current.rotation.x = Math.PI / 2 + mouse.y * 0.5;
-      modelRef.current.rotation.y = mouse.x * 0.5;
-      modelRef.current.rotation.z = Math.PI / 2;
-    }
-  }); */
 
   return (
     <mesh scale={0.1} position={[0, 0, 0]} rotation={[Math.PI /2, 0, 0]}>

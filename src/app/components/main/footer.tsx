@@ -1,6 +1,9 @@
 "use client";
 
-import React from 'react';
+import React from 'react'; 
+import {FaInstagram , FaEnvelope} from 'react-icons/fa'; 
+import '../../globals.css';   
+
 // import Image from 'next/image';
 
 
@@ -30,18 +33,34 @@ const Footer: React.FC = () => {
                                     target="_blank"
                                     rel='noreferrer'
                                 >
-                                    <img className="footer__img"
-                                    src={"/img/insta-footer.png"}/>
+                                    {/* {<img className="footer__img"
+                                    src={"/img/insta-footer.png"}/>} */}
+                                    <div className='instagram-wrapper'>
+                                    <FaInstagram className='icon instagram'/>
+
+                                    </div>
+
                                 </a>
+                                <div className="wrapper">
+                                    <a href="https://instagram.com/" target="_instagram" aria-label="A great place to find out what friends are up to!">
+                                        <div className="bg">
+                                        <div className="inner">
+                                            <FaInstagram className="fab fa-instagram" />
+                                        </div>
+                                        </div>
+                                    </a>
+                                    </div>
                                 <a
                                     href="mailto:zorphix@citchennai.net"
                                     target="_blank"
                                     rel='noreferrer'
                                 >
-                                    <img className="footer__img" 
+                                    {/* <img className="footer__img" 
                                     src={"/img/gmail.png"} 
                                     alt="Gmail" 
-                                    />
+                                    /> */}
+                                    <FaEnvelope className='icon mail'/>
+                                    
                                 </a>
                             </div>
                         </div>

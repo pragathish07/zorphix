@@ -130,9 +130,9 @@ const TechEvents = () => {
                         "Thesis-Precized",
                         "Inspire us to redefine the tech landscape. Thesis Precised is your platform to present and engage in the presentation as they delve into the captivating realm of your thesis precisely. Emerge victorious, and you take home the title of BEST PAPER.",
                         "Sathyaram P",
-                        "",
+                        "Saravana Kumar V",
                         "+91 90035 60430",
-                        "",
+                        "+91 80560 64883",
                         "forms.gle/G9GTWJTvh4SZGvqJA",
                         "To be Announced"
                       )
@@ -176,8 +176,8 @@ const TechEvents = () => {
                       toggle(
                         "Coin Quest",
                         "Ever wanted to participate in a digital tech game event? Here's your chance! Participants play a series of wordplay, quizzes, and games that advance through rounds. Get ready to tech it up at Coin Quest.",
-                        "Yalancy",
-                        "Meenakshi",
+                        "Yalancy C R",
+                        "Vidhiyaashri",
                         "+91 89394 30404",
                         "+91 96000 50186",
                         "forms.gle/P3QNm3woRoMd6bF66",
@@ -202,7 +202,7 @@ const TechEvents = () => {
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
-                <div className="card__picture card__picture--4-tech">
+                <div className="card__picture card__picture--9-tech">
                   &nbsp;
                 </div>
                 <h4 className="card__heading">
@@ -225,8 +225,8 @@ const TechEvents = () => {
                         toggle(
                           "Reverse Coding",
                           "Join us for an exciting Reverse Coding Challenge! Dive into the world of problem-solving where the output is known, and your task is to unravel the logic behind it. Test your creativity and analytical thinking in a fun and competitive environment.",
-                          "Swetha",
-                          "Yuvarani",
+                          "Swetha P V",
+                          "Yuvarani T",
                           "+91 85248 46026",
                           "+91 86808 68188",
                           "forms.gle/2r5S34Nfzvnivrzx6",
@@ -247,7 +247,7 @@ const TechEvents = () => {
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
-                <div className="card__picture card__picture--5-tech">
+                <div className="card__picture card__picture--4-tech">
                   &nbsp;
                 </div>
                 <h4 className="card__heading">
@@ -319,8 +319,8 @@ const TechEvents = () => {
                         toggle(
                           "Caseathon",
                           "Are you ready to dive into a world where melodies are composed by lines of code, and rhythm is dictated by algorithms? Here, the tech enthusiast delves into coding against the distraction of music. Let the beats and coding begin!",
-                          "Sahanaa",
-                          "Chandrahashini",
+                          "Sahana G",
+                          "Chandrahasini S",
                           "+91 89397 83181",
                           "+91 91506 47414",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
@@ -352,7 +352,7 @@ const TechEvents = () => {
           <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
-                <div className="card__picture card__picture--6-tech">
+                <div className="card__picture card__picture--4-nontech">
                   &nbsp;
                 </div>
                 <h4 className="card__heading">
@@ -378,8 +378,8 @@ const TechEvents = () => {
                         toggle(
                           "FLIP IT & QUIZ IT",
                           "Prepare for an event of mind-bending scenarios, where the participants will be presented with complex situational questions that demand creative problem-solving, but the twist lies in who can master the art of bottle flipping to secure their chance to answer first. Join us for a journey of intellect and strategy at 'Flip it & Quiz it'.",
-                          "Pradeep",
-                          "Devadharshini",
+                          "Venkat charan V",
+                          "Devadharshini N",
                           "+91 93604 94919",
                           "+91 77081 17930",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
@@ -402,7 +402,7 @@ const TechEvents = () => {
         <div className="col-1-of-3">
             <div className="card" data-aos="zoom-in">
               <div className="card__side card__side--front">
-                <div className="card__picture card__picture--6-tech">
+              <div className="card__picture card__picture--6-tech">
                   &nbsp;
                 </div>
                 <h4 className="card__heading">
@@ -428,8 +428,8 @@ const TechEvents = () => {
                         toggle(
                             "VIRTUOSO",
                             "Paying homage to Vijay TV's iconic Start Music, we're raising the stakes in music games. Evoke your inner music detective in a dynamic guessing game event with three rounds of song and melody challenges. Join us for a day filled with musical excitement at Virtuoso!",
-                            "Gokula krishnan",
-                            "Sundara Vinayagam",
+                            "Gokula krishnan V",
+                            "Sundara Vinayagam V",
                             "+91 97879 38290",
                             "+91 84382 59479",
                             "forms.gle/2r5S34Nfzvnivrzx6",
