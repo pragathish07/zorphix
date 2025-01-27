@@ -146,12 +146,12 @@ const App: React.FC = () => {
               <h1 className="heading-primary--sub date">February 18th 2025</h1>
   
               <a
-                href="https://drive.google.com/file/d/1dMm0oCW53daJt7EmHRQF6yqpZOane29A/view?usp=sharing"
+                
                 className="btn btn--white btn--animated bold"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#events"
+                
               >
-                CIT Bus Routes ↗
+                Explore ↗
               </a>
               <br/><br/>
               <Counter/>

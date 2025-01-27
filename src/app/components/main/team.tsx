@@ -29,6 +29,17 @@ const Team: React.FC = () => {
         </div>
         
       </div>
+      <div>
+      <a
+                href="https://drive.google.com/file/d/1dMm0oCW53daJt7EmHRQF6yqpZOane29A/view?usp=sharing"
+                className="btn btn--white btn--animated bold"
+                target="_blank"
+                style={{position:"absolute",top:"87%" ,left:"50%",transform:"translate(-50%,-50%)"}}
+                rel="noopener noreferrer"
+              >
+                CIT Bus Routes ↗
+              </a>
+      </div>
     </div>
   );
 };
