@@ -54,6 +54,7 @@ const Profile: React.FC = () => {
     const handleBack = () => {
         router.push("/");
     };
+    
 
     return (
         <div id="profile" className="section-profile" data-aos="fade-up">

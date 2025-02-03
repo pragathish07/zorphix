@@ -1,4 +1,4 @@
-export const getEmailTemplate = (name: string) => `
+export const getEmailTemplate = (name: string,uid:string) => `
 <!-- Banner Image -->
 <img src="your-banner-url.jpg" alt="Zorphix Symposium Banner" class="banner-image">
 
@@ -16,16 +16,20 @@ export const getEmailTemplate = (name: string) => `
 <div class="left-aligned">
     <p class="event-details">
         <strong>Date:</strong><br>
-        6th February 2025
+        18th February 2025
     </p>
     
     <p class="event-details">
         <strong>Venue:</strong><br>
-        Chennai Institute of Technology, Kundrathur
-    </p>
+        Chennai Institute of Technology, Kundrathur    </p>
 </div>
 
 <p class="event-details" style="text-align: center;">
     Thank you for registering for this event! We look forward to your participation and hope you have a fruitful experience.
 </p>
+    <div>
+        <img src="${uid}.png" class="event-details" />   
+    </div>
 `;
+
+

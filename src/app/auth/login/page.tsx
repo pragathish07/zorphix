@@ -9,6 +9,7 @@ import './login.css';
 import { doc, setDoc } from "@firebase/firestore";
 import { v4 as uuid } from 'uuid';
 import LoginCarousel from '../../components/main/LoginCarousel';
+import toast from "react-hot-toast";
 
 
 interface UserData {
@@ -131,6 +132,29 @@ const LoginForm: React.FC = () => {
     return Object.keys(errors).length === 0;
   };
   
+
+  const getFirebaseErrorMessage = (error:any): string => {
+    switch (error.code) {
+      case 'auth/user-not-found':
+        return 'No account found with this email. Please sign up first.';
+      case 'auth/wrong-password':
+        return 'Incorrect password. Please try again.';
+      case 'auth/invalid-email':
+        return 'Invalid email address format.';
+      case 'auth/email-already-in-use':
+        return 'An account with this email already exists. Please sign in instead.';
+      case 'auth/weak-password':
+        return 'Password should be at least 6 characters long.';
+      case 'auth/network-request-failed':
+        return 'Network error. Please check your internet connection.';
+      case 'auth/too-many-requests':
+        return 'Too many failed attempts. Please try again later.';
+      case 'auth/invalid-credential':
+        return 'Invalid login credentials. Please check your email and password.';
+      default:
+        return `Authentication error: ${error.message}`;
+    }
+  };
   
   
 
@@ -144,47 +168,71 @@ const LoginForm: React.FC = () => {
   
     try {
       if (isSignUpMode) {
-        await signInWithEmailAndPassword(auth, data.email, data.password);
+        try{
+          await signInWithEmailAndPassword(auth, data.email, data.password);
+          router.push('/profile')
+
+        }catch(error:any){
+
+          if (error.code === 'auth/user-not-found') {
+            setCommonError('No account found with this email. Would you like to sign up instead?');
+            // Optionally add a button or link to switch to sign-up mode
+          } else {
+            setCommonError(getFirebaseErrorMessage(error));
+          }
+          return;
+        }
+      
       } else {
-        const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
-        const user = userCredential.user;
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+          const user = userCredential.user;
   
-        const userUuid = uuid();
-        await setDoc(doc(db, "users", userUuid), {
-          uid: userUuid,
-          email: data.email,
-          name: data.fullName,
-          department: data.dept,
-          year: selectedYear?.value,
-          contactNo: data.contactNo,
-          collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
-          degree: data.degree,
-        });
-  
-        await fetch("/api/qrcode", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            uid: user.uid,
-            name: data.fullName,
+          const userUuid = uuid();
+          await setDoc(doc(db, "users", userUuid), {
+            uid: userUuid,
             email: data.email,
+            name: data.fullName,
             department: data.dept,
             year: selectedYear?.value,
             contactNo: data.contactNo,
             collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
             degree: data.degree,
-          }),
-        });
+          });
+  
+          await fetch("/api/qrcode", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              uid: user.uid,
+              name: data.fullName,
+              email: data.email,
+              department: data.dept,
+              year: selectedYear?.value,
+              contactNo: data.contactNo,
+              collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
+              degree: data.degree,
+            }),
+          });
+
+          alert("Account created successfully!"); 
+          router.push("/");
+        } catch (error: any) {
+          
+          if (error.code === 'auth/email-already-in-use') {
+            setCommonError('An account with this email already exists. Would you like to sign in instead?');
+            
+          } else {
+            setCommonError(getFirebaseErrorMessage(error));
+          }
+          return;
+        }
       }
-      router.push("/");
-    } catch (err) {
-      const errorMessage =
-        err instanceof Error
-          ? err.message
-          : "An unexpected error occurred. Please try again later.";
-      setCommonError(errorMessage);
-    }finally{
-      setLoading(false)
+    } catch (error: any) {
+      
+      setCommonError(getFirebaseErrorMessage(error));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -337,6 +385,7 @@ const LoginForm: React.FC = () => {
               </p>
             )}
           </div>
+          {commonError && <div className="common-error">{commonError}</div>}
         </form>
       </div>
 
@@ -344,8 +393,8 @@ const LoginForm: React.FC = () => {
       {/* stop the current image on hover */}
       
         <LoginCarousel images={images} />
-        {commonError && <div className="common-error">{commonError}</div>}
       </div>
+        
     </div>
 
     

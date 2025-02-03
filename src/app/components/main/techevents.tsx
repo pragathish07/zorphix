@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import PopupModal from "./popupmodal";
 import Aos from "aos";
 import 'aos/dist/aos.css';
+import { arrayUnion, doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import toast from "react-hot-toast";
+import { getAuth } from "firebase/auth";
 
 const TechEvents = () => {
   useEffect(() => { 
@@ -44,6 +47,42 @@ const TechEvents = () => {
     });
     setPopupVisible(!isPopupVisible);
   };
+
+  const handleRegister = async (eventName:string) =>{
+    
+    const auth = getAuth();
+  const user = auth.currentUser;
+  
+  if (!user) {
+    toast.error("Please log in to register for the event.");
+    return;
+  }
+
+  const db = getFirestore();
+  const userRef = doc(db, "users", user.uid);
+
+  try {
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+      // Create user document if it doesn't exist
+      await setDoc(userRef, {
+        registeredEvents: [eventName], // Initialize with first event
+      }, { merge: true });
+    } else {
+      // Update existing user document
+      await setDoc(userRef, {
+        registeredEvents: arrayUnion(eventName),
+      }, { merge: true });
+    }
+
+    toast.success(`Successfully registered for ${eventName}`);
+  } catch (error) {
+    console.error("Error registering for the event:", error);
+    toast.error("Failed to register. Please try again.");
+  }
+
+  }
 
   return (
     <div className="section-tours" id="events">
@@ -141,9 +180,9 @@ const TechEvents = () => {
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white" href="/auth/login">
+                <button className="btn btn--white" onClick={() => handleRegister('Thesis-Precized')}>
                   Register Now
-                </a>
+                </button>
               </div>
             </div>
           </div>

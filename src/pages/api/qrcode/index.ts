@@ -63,8 +63,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Send the email with the QR code link
       await transporter.sendMail({
         to: email,
-        subject: "Welcome to Zorphix 2024!",
-        html: getEmailTemplate(name), // Use your email template here
+        subject: "Welcome to Zorphix 2025!",
+        html: getEmailTemplate(name,uid), // Use your email template here
         attachments: [
           {
             filename: `${uid}.png`,
