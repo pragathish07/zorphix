@@ -934,6 +934,7 @@
   .btn--white {
     background-color: #fff;
     color: #777;
+    font-family: 'Signika', serif !important;
   }
   
   .btn--white::after {
@@ -2596,6 +2597,7 @@
   .carousel_container{
     height: 80vh;
     display: flex;
+    z-index: -1;
     justify-content: center;
     align-items: center;
     margin-top: 50px;

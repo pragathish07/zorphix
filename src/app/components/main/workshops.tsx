@@ -126,7 +126,7 @@ const Workshops: React.FC = () => {
                   </p>
                 </div>
                 <div className="card__price-box">
-                  <a href="https://forms.gle/SqxqzPeT3f4Csyxa9" target="_blank" className="btn btn--white" rel="noopener noreferrer">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqVd7_6Gpq9f3Sfuao_LyfYA8qWa-omOg3q0amlFRSou1Q0A/viewform?usp=dialog" target="_blank" className="btn btn--white" rel="noopener noreferrer">
                     Register Now
                   </a>
                 </div>
@@ -172,7 +172,7 @@ const Workshops: React.FC = () => {
                   </p>
                 </div>
                 <div className="card__price-box">
-                  <a href="https://forms.gle/sg9qZ6mV9bRwidXC6" target="_blank" className="btn btn--white" rel="noopener noreferrer">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpl_bcQh8ZixoxKZngLNniFe5T-qbVVSaW4f91swimy35yEw/viewform?usp=dialog" target="_blank" className="btn btn--white" rel="noopener noreferrer">
                     Register Now
                   </a>
                 </div>

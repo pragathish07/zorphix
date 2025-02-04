@@ -130,7 +130,7 @@ const ImageAnimation = () => {
       <Canvas camera={{ position: [0, 0, 10] }} ref={logoRef} className="logo-container">
           <ambientLight intensity={5} />
           <directionalLight position={[2, 10, 10]} intensity={5} />
-          <directionalLight position={[-2, -10, 10]} intensity={0.5} />
+          <directionalLight position={[-2, -10, 10]} intensity={10} />
           
            
           <Stage>
@@ -165,7 +165,7 @@ const ImageAnimation = () => {
 
 
 const LogoModel = () =>  {
-  const { scene } = useGLTF("/z1.glb"); 
+  const { scene } = useGLTF("/z6.glb"); 
 
 
   return (

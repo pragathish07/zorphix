@@ -51,6 +51,7 @@ const PopupModal: React.FC<PopupModalProps> = ({
   };
 
   return (
+    
     <div className="popup-container">
       <div className={`background-blur ${isVisible ? 'active' : ''}`}></div>
       <div id="pop" className={isVisible ? 'new_active' : ''}>
@@ -91,6 +92,7 @@ const PopupModal: React.FC<PopupModalProps> = ({
         </div>
       </div>
     </div>
+    
   );
 }
 

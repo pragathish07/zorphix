@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 import PopupModal from "./popupmodal";
 import Aos from "aos";
 import 'aos/dist/aos.css';
+import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from "firebase/firestore";
+import toast from "react-hot-toast";
+import { getAuth } from "firebase/auth";
+import { auth, db } from "@/firebaseConfig";
 
 const TechEvents = () => {
   useEffect(() => { 
@@ -11,6 +15,7 @@ const TechEvents = () => {
   });
 
   const [isPopupVisible, setPopupVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [eventInfo, setEventInfo] = useState({
     heading: "",
     content: "",
@@ -45,6 +50,52 @@ const TechEvents = () => {
     setPopupVisible(!isPopupVisible);
   };
 
+  const handleRegister = async (eventName: string) => {
+    const user = auth.currentUser;
+    if (!user) {
+        toast.error("Please log in to register for the event.");
+        return;
+    }
+
+    const userRef = doc(db, "users", user.uid);
+    
+    
+
+    try {
+        setLoading(true); // Show loader
+
+        // Fetch user data
+        const userSnap = await getDoc(userRef);
+        if (!userSnap.exists()) {
+            toast.error("User data not found.");
+            setLoading(false);
+            return;
+        }
+
+        const userData = userSnap.data();
+        const registeredEvents = userData.registeredEvents || [];
+
+        // Check if the user already registered for the event
+        const isAlreadyRegistered = registeredEvents.some((event: { name: string; }) => event.name === eventName);
+        if (isAlreadyRegistered) {
+            toast.error(`You have already registered for ${eventName}.`);
+            setLoading(false);
+            return;
+        }
+
+        // Register the event
+        await updateDoc(userRef, {
+            registeredEvents: arrayUnion({ name: eventName}),
+        });
+
+        toast.success(`Successfully registered for ${eventName}!`);
+    } catch (error) {
+        console.error("Error registering for the event:", error);
+        toast.error("Failed to register. Please try again.");
+    } finally {
+        setLoading(false); // Hide loader
+    }
+};
   return (
     <div className="section-tours" id="events">
       <div className="u-center-text u-margin-bottom-big">
@@ -93,9 +144,9 @@ const TechEvents = () => {
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white" href="/auth/login">
-                  Register Now
-                </a>
+                <button className="btn btn--white" onClick={() => handleRegister('xCoders')} disabled={loading}>
+                  {loading ? "Registering..." : "Register Now"}
+                </button>
               </div>
             </div>
           </div>
@@ -141,9 +192,9 @@ const TechEvents = () => {
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white" href="/auth/login">
-                  Register Now
-                </a>
+                <button className="btn btn--white" style={{fontFamily:"sans-serif"}} onClick={() => handleRegister('Thesis-Precized')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
               </div>
             </div>
           </div>
@@ -188,9 +239,9 @@ const TechEvents = () => {
                     Know More
                   </p>
                 </div>
-                <a className="btn btn--white" href="/auth/login">
-                  Register Now
-                </a>
+                <button className="btn btn--white" onClick={() => handleRegister('Coin Quest')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
               </div>
             </div>
           </div>
@@ -237,9 +288,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white" href="/auth/login">
-                    Register Now
-                  </a>
+                  <button className="btn btn--white" onClick={() => handleRegister('Reverse Coding')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
                 </div>
               </div>
             </div>
@@ -286,9 +337,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white" href="/auth/login">
-                    Register Now
-                  </a>
+                  <button className="btn btn--white" onClick={() => handleRegister('Algo-Rythms')} disabled={loading}>
+                    {loading ? "Registering..." : "Register Now"}
+                </button>
                 </div>
               </div>
               </div>
@@ -331,9 +382,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white" href="/auth/login">
-                    Register Now
-                  </a>
+                  <button className="btn btn--white" onClick={() => handleRegister('Caseathon')} disabled={loading}>
+                    {loading ? "Registering..." : "Register Now"}
+                </button>
                 </div>
               </div>
             </div>
@@ -390,9 +441,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white" href="/auth/login">
-                    Register Now
-                  </a>
+                  <button className="btn btn--white" onClick={() => handleRegister('Flip it & Quiz it')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
                 </div>
               </div>
             </div>
@@ -440,9 +491,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <a className="btn btn--white" href="/auth/login">
-                    Register Now
-                  </a>
+                  <button className="btn btn--white" onClick={() => handleRegister('Virtuoso')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
                 </div>
               </div>
             </div>

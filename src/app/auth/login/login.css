@@ -178,7 +178,10 @@ form.sign-up-form {
 }
 
 .sign-btn {
-    display: inline-block;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 43px;
     background-color: #151111;
@@ -189,7 +192,7 @@ form.sign-up-form {
     font-size: 1.3rem;
     margin-bottom: 2rem;
     margin-top: 3rem;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .sign-btn:hover {
@@ -559,3 +562,40 @@ main.sign-up-mode .carousel {
       transform: rotate(1turn);
     }
   }
+
+
+  .sign-btn:disabled {
+    background-color: #9d4edd;
+    cursor: not-allowed;
+}
+
+.loader {
+    position: absolute;
+    left: 40%;
+    bottom:30%;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+  
+  .sign-btn.loading {
+    color: transparent;
+  }
+  
+
+
+
+

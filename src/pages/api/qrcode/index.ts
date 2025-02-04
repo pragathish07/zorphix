@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
+    pass: process.env.GMAIL_PASS, 
   },
 });
 
@@ -63,13 +63,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Send the email with the QR code link
       await transporter.sendMail({
         to: email,
-        subject: "Welcome to Zorphix 2024!",
+        subject: "Welcome to Zorphix 2025!",
         html: getEmailTemplate(name), // Use your email template here
         attachments: [
           {
             filename: `${uid}.png`,
-            path: qrCodeUrl, // Use the Cloudinary URL
+            path: qrCodeUrl,
+            contentType: 'image/png',
           },
+
         ],
       });
 
