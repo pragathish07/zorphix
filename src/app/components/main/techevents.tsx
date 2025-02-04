@@ -8,6 +8,7 @@ import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from "fireba
 import toast from "react-hot-toast";
 import { getAuth } from "firebase/auth";
 import { auth, db } from "@/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 const TechEvents = () => {
   useEffect(() => { 
@@ -26,6 +27,8 @@ const TechEvents = () => {
     registrationLink: "",
     venue: "",
   });
+
+  const router = useRouter();
 
   const toggle = (
     title : string,
@@ -54,6 +57,7 @@ const TechEvents = () => {
     const user = auth.currentUser;
     if (!user) {
         toast.error("Please log in to register for the event.");
+        router.push("/auth/login");
         return;
     }
 
