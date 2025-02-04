@@ -218,7 +218,7 @@ const LoginForm: React.FC = () => {
           });
 
           alert("Account created successfully!"); 
-          router.push("/");
+          router.push("/profile");
         } catch (error: any) {
           
           if (error.code === 'auth/email-already-in-use') {
