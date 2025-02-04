@@ -160,9 +160,10 @@ const LoginForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     if (!validateForm()) return;
   
-    setLoading(true);
+   
     setCommonError(null);
   
   
@@ -189,8 +190,8 @@ const LoginForm: React.FC = () => {
           const user = userCredential.user;
   
           const userUuid = uuid();
-          await setDoc(doc(db, "users", userUuid), {
-            uid: userUuid,
+          await setDoc(doc(db, "users", user.uid), {
+            uid: user.uid,
             email: data.email,
             name: data.fullName,
             department: data.dept,
@@ -198,6 +199,7 @@ const LoginForm: React.FC = () => {
             contactNo: data.contactNo,
             collegeName: selectedCollege?.value === "other" ? otherCollege : selectedCollege?.label,
             degree: data.degree,
+            registeredEvents:[],
           });
   
           await fetch("/api/qrcode", {
@@ -240,6 +242,7 @@ const LoginForm: React.FC = () => {
     error ? <div className="error-text">{error}</div> : null
   ); */
   
+ 
 
   return (
     <main>
@@ -373,9 +376,11 @@ const LoginForm: React.FC = () => {
 
             <button
               type="submit"
-              className="sign-btn"
+              className={`sign-btn ${loading ? 'loading' : ''}`}
+              disabled={loading}
             >
               {isSignUpMode ? "Sign in" : "Sign up"}
+              {loading && <div className="loader"></div>}
             </button>
 
             {isSignUpMode && (

@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
+    pass: process.env.GMAIL_PASS, 
   },
 });
 
@@ -64,12 +64,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await transporter.sendMail({
         to: email,
         subject: "Welcome to Zorphix 2025!",
-        html: getEmailTemplate(name,uid), // Use your email template here
+        html: getEmailTemplate(name), // Use your email template here
         attachments: [
           {
             filename: `${uid}.png`,
-            path: qrCodeUrl, // Use the Cloudinary URL
+            path: qrCodeUrl,
+            contentType: 'image/png',
           },
+
         ],
       });
 

@@ -15,7 +15,7 @@ const Main: React.FC = () => {
   return (
     <div>
       <BackgroundAnimation />
-      <EntryPass />
+      
       <About />
       <Sponsors />
       <TechEvents />
