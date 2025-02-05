@@ -1165,6 +1165,17 @@
     background-image: linear-gradient(to right bottom, #10002b, #240046),
       url(../../public/img/virtuoso.jpg);
   }
+
+  .card__picture--8-tech {
+    background-image: -webkit-gradient(linear,
+        left top,
+        right bottom,
+        from(#10002b),
+        to(#240046)),
+      url(../../public/img/freefire.jpg);
+    background-image: linear-gradient(to right bottom, #10002b, #240046),
+      url(../../public/img/freefire.jpg);
+  }
   
   .card__picture--4-nontech {
     background-image: -webkit-gradient(linear,
@@ -1177,6 +1188,17 @@
       url(../../public/img/ftb1.png);
   }
   
+  .card__picture--9-nontech {
+    background-image: -webkit-gradient(linear,
+        left top,
+        right bottom,
+        from(#10002b),
+        to(#240046)),
+      url(../../public/img/bgmi.jpg);
+    background-image: linear-gradient(to right bottom, #10002b, #240046),
+      url(../../public/img/bgmi.jpg);
+  }
+
   .single-card {
     width: 320px;
     position: relative;

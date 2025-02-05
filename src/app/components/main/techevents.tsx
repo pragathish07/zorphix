@@ -502,10 +502,112 @@ const TechEvents = () => {
               </div>
             </div>
           </div>
+          <div className="col-1-of-3">
+            <div className="card" data-aos="zoom-in">
+              <div className="card__side card__side--front">
+              <div className="card__picture card__picture--8-tech">
+                  &nbsp;
+                </div>
+                <h4 className="card__heading">
+                  <span className="card__heading-span card__heading-span--1 bold-white">
+                  Clash Of War
+                  </span>
+                </h4>
+                <div className="card__details">
+                  <p>
+                  Contestants will engage in intense team battles, showcasing their strategies, reflexes, and teamwork. Players must outsmart, outgun, and outlast their opponents to claim victory in the ultimate Free Fire arena. Ready to rise above the rest?
+                  </p>
+                </div>
+              </div>
+              <div className="card__side card__side--back card__side--back-1">
+                <div className="card__cta">
+                  <div className="card__price-box">
+                    <p
+                      className="btn btn--white"
+                      onClick={() =>
+                        toggle(
+                            "Clash of War",
+                            "Contestants will engage in intense team battles, showcasing their strategies, reflexes, and teamwork. Players must outsmart, outgun, and outlast their opponents to claim victory in the ultimate Free Fire arena. Ready to rise above the rest?",
+                            "B Yaswanth Reddy",
+                            "Shaik Ashif",
+                            "+91 85559 80454",
+                            "+91 63052 53091",
+                            "forms.gle/2r5S34Nfzvnivrzx6",
+                            "To be Announced"
+                        )
+                      }
+                    >
+                      Know More
+                    </p>
+                  </div>
+                  <button className="btn btn--white" onClick={() => handleRegister('Clash of War')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
 
       </div>
+
+      <div className="sm-padding" id="section-tours">
+        <div className="row">
+          <div className="col-1-of-3">
+            <div className="card" data-aos="zoom-in">
+              <div className="card__side card__side--front">
+                <div className="card__picture card__picture--9-nontech">
+                  &nbsp;
+                </div>
+                <h4 className="card__heading">
+                  <span className="card__heading-span card__heading-span--1 bold-white">
+                      Battle Field
+                  </span>
+                </h4>
+                <div className="card__details">
+                  <p>
+                  Contestants are challenged to master the art of combat in fast-paced Team Deathmatches, utilizing strategy, quick reflexes, and teamwork to outsmart and outgun their rivals. Only the sharpest and most tactical will emerge as the true champions in this high-octane BGMI event. Ready to claim victory? The fight begins now!
+                  </p>
+                </div>
+              </div>
+              <div className="card__side card__side--back card__side--back-1">
+                <div className="card__cta">
+                  <div className="card__price-box">
+                    <p
+                      className="btn btn--white"
+                      onClick={() =>
+                        toggle(
+                          "Battle field",
+                          "Contestants are challenged to master the art of combat in fast-paced Team Deathmatches, utilizing strategy, quick reflexes, and teamwork to outsmart and outgun their rivals. Only the sharpest and most tactical will emerge as the true champions in this high-octane BGMI event. Ready to claim victory? The fight begins now!",
+                          "Vigneshwaran V",
+                          "Ramanan",
+                          "+91 95001 28710",
+                          "+91 93610 09914",
+                          "forms.gle/KQrFXKMjRHmNKVMC6",
+                          "To be Announced"
+                        )
+                      }
+                    >
+                      Know More
+                    </p>
+                  </div>
+                  <button className="btn btn--white" onClick={() => handleRegister('Battle Field')} disabled={loading}>
+                {loading ? "Registering..." : "Register Now"}
+                </button>
+                </div>
+              </div>
+            </div>
+         
+      </div>
+
+        
+        </div>
+        
+
+      </div>
+
+      
       
          
 
