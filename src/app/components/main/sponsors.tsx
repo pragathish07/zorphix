@@ -19,7 +19,7 @@ const Sponsors: React.FC = () => {
       </div>
       <div className="sponsor">
         
-        <div className="" style={{ display: "flex", justifyContent: "center" }}>
+        
           
           
           <div className="section-sponsor-card" data-aos="fade-right">
@@ -29,7 +29,6 @@ const Sponsors: React.FC = () => {
             <Image width={300} height={300} src={"/img/mcafe.png"} className="i ovi" alt="ovi design academy" />
           </div>
          
-        </div>
       </div>
     </div>
   );

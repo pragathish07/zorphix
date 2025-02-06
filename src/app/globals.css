@@ -2332,6 +2332,14 @@
       align-items: center;
       padding-left: 60px;
     }
+    .sponsor{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
   }
   
   .sponsor {
@@ -2359,6 +2367,13 @@
   @media only screen and (max-width: 56.25em) {
     .section-features {
       padding: 10rem 0;
+    }
+    .sponsor{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
     }
   }
   
