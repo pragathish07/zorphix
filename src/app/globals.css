@@ -2221,12 +2221,11 @@
     width: 100%;
   }
   
-  .i {
-    width: 100%;
-    object-fit: contain;
-    padding: 0;
-    margin-bottom: 20px;
-    margin-top: 20px;
+
+
+  .mcafe{
+    width: 800px;
+    height: 500px;
   }
   
   @media screen and (max-width: 480px){
@@ -2300,6 +2299,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-left: 0;
     }
   
     .some-large {
@@ -2374,6 +2374,11 @@
       align-items: center;
       justify-content: center;
       gap: 30px;
+    }
+
+    .mcafe{
+      width: 600px;
+      height: 400px;
     }
   }
   
