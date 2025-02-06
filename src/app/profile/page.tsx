@@ -11,12 +11,19 @@ import "./profile.css";
 import "../globals.css"
 import BackgroundAnimation from "../components/main/backgroundanimation";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { jsPDF } from "jspdf";
+import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import Modal from "react-modal";
+import ODLetterDownload from "../../../utils/odLetterTemplate";
 
 const Profile: React.FC = () => {
     const router = useRouter();
     const [user, setUser] = useState<any>(null);
     const [userData, setUserData] = useState<any>(null);
     const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
+    const [modalOpen, setModalOpen] = useState(false);
+    const [agreed, setAgreed] = useState(false);
 
     useEffect(() => {
         Aos.init({ duration: 1500 });
@@ -51,6 +58,18 @@ const Profile: React.FC = () => {
     const handleBack = () => {
         router.push("/");
     };
+
+    /// od letter functions starts from here
+
+    const handleGenerateOD = () => {
+        if (!userData?.registeredEvents || userData.registeredEvents.length === 0) {
+            toast.error("You have not registered for any events!");
+            return;
+        }
+        setModalOpen(true); // Open confirmation modal
+    };
+
+    
     
 
     return (
@@ -111,6 +130,31 @@ const Profile: React.FC = () => {
                                     >
                                     Explore ↗
                                     </a>
+                                    <button onClick={handleGenerateOD} className="btn btn--white btn--animated bold">
+                                        Request OD
+                                    </button>
+
+                                    <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)} className="modal">
+                                        <h2>Confirm Before Downloading</h2>
+                                        <p>Please ensure that:</p>
+                                        <ul>
+                                            <li>You will use this letter only for its intended purpose.</li>
+                                            <li>Your details in this letter are correct.</li>
+                                        </ul>
+
+                                        <label>
+                                            <input type="checkbox" checked={agreed} onChange={() => setAgreed(!agreed)} />
+                                            I confirm the above statements.
+                                        </label>
+
+                                        <div className="modal-actions">
+                                            <button onClick={() => setModalOpen(false)} className="cancel-btn">Cancel</button>
+                                            {/* <button onClick={DownloadODLetter} disabled={!agreed} className="download-btn">
+                                                Download OD Letter
+                                            </button> */}
+                                            <ODLetterDownload userData={userData} agreed={agreed}/>
+                                        </div>
+                                    </Modal>
                             
                             </div>
                            

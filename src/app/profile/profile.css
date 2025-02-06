@@ -226,8 +226,192 @@ p b + span {
 
 .profile-cta-section {
   display: flex;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   width: 100%;
+}
+
+
+/* OD letter styles */
+
+/* Modal Overlay */
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+/* Modal Content */
+.modal {
+  background: white;
+  border-radius: 20px;
+  font-family: "Signika', serif" !important;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.modal h2 {
+  font-size: 2rem;
+  font-family: inherit;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.modal p {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* List Styling */
+.modal ul {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.modal li {
+  font-size: 1.4rem;
+  color: #4a4a4a;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+/* Checkbox Container */
+.modal label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  font-size: 1.4rem;
+  color: #2d3436;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.modal label:hover {
+  background-color: #f8f9fa;
+}
+
+/* Checkbox Styling */
+.modal input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal input[type="checkbox"]:checked {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+/* Button Container */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+.modal-actions button {
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #f1f2f6;
+  color: #2d3436;
+}
+
+.cancel-btn:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.download-btn {
+  background-color: #000;
+  color: white;
+}
+
+.download-btn:hover:not(:disabled) {
+  background-color: rgb(111, 111, 111);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.download-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .modal {
+      padding: 1.5rem;
+      width: 95%;
+  }
+
+  .modal h2 {
+      font-size: 1.5rem;
+  }
+
+  .modal p, 
+  .modal li,
+  .modal label {
+      font-size: 1rem;
+  }
+
+  .modal-actions {
+      flex-direction: column-reverse;
+      gap: 0.8rem;
+  }
+
+  .modal-actions button {
+      width: 100%;
+      padding: 1rem;
+  }
 }

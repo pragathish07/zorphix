@@ -100,6 +100,10 @@ const TechEvents = () => {
         setLoading(false); // Hide loader
     }
 };
+
+
+
+
   return (
     <div className="section-tours" id="events">
       <div className="u-center-text u-margin-bottom-big">
@@ -234,7 +238,7 @@ const TechEvents = () => {
                         "Yalancy C R",
                         "Vidhiyaashri",
                         "+91 89394 30404",
-                        "+91 96000 50186",
+                        "+91 88257 23744",
                         "forms.gle/P3QNm3woRoMd6bF66",
                         "To be Announced"
                       )
@@ -433,10 +437,10 @@ const TechEvents = () => {
                         toggle(
                           "FLIP IT & QUIZ IT",
                           "Prepare for an event of mind-bending scenarios, where the participants will be presented with complex situational questions that demand creative problem-solving, but the twist lies in who can master the art of bottle flipping to secure their chance to answer first. Join us for a journey of intellect and strategy at 'Flip it & Quiz it'.",
-                          "Venkat charan V",
-                          "Devadharshini N",
-                          "+91 93604 94919",
-                          "+91 77081 17930",
+                          "Aarthi R",
+                          "Sowmiyaa G V",
+                          "+91 86102 29359",
+                          "+91 94442 25836",
                           "forms.gle/KQrFXKMjRHmNKVMC6",
                           "To be Announced"
                         )
@@ -532,7 +536,7 @@ const TechEvents = () => {
                             "Shaik Ashif",
                             "+91 85559 80454",
                             "+91 63052 53091",
-                            "forms.gle/2r5S34Nfzvnivrzx6",
+                            "https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog",
                             "To be Announced"
                         )
                       }
@@ -540,9 +544,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <button className="btn btn--white" onClick={() => handleRegister('Clash of War')} disabled={loading}>
-                {loading ? "Registering..." : "Register Now"}
-                </button>
+                  <a className="btn btn--white" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfpwPetCc-h6WkBVayJaI5xfxHq5ifKfgQO2zurukaFrdaW3g/viewform?usp=dialog" >
+                    {loading ? "Registering..." : "Register Now"}
+                </a>
                 </div>
               </div>
             </div>
@@ -581,10 +585,10 @@ const TechEvents = () => {
                           "Battle field",
                           "Contestants are challenged to master the art of combat in fast-paced Team Deathmatches, utilizing strategy, quick reflexes, and teamwork to outsmart and outgun their rivals. Only the sharpest and most tactical will emerge as the true champions in this high-octane BGMI event. Ready to claim victory? The fight begins now!",
                           "Vigneshwaran V",
-                          "Ramanan",
+                          "Venkat Charan V",
                           "+91 95001 28710",
-                          "+91 93610 09914",
-                          "forms.gle/KQrFXKMjRHmNKVMC6",
+                          "+91 98409 35789",
+                          "https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog",
                           "To be Announced"
                         )
                       }
@@ -592,9 +596,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <button className="btn btn--white" onClick={() => handleRegister('Battle Field')} disabled={loading}>
+                  <a className="btn btn--white" href="https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog" target="_blank">
                 {loading ? "Registering..." : "Register Now"}
-                </button>
+                </a>
                 </div>
               </div>
             </div>

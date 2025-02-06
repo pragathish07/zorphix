@@ -154,6 +154,8 @@ const ImageAnimation = () => {
         <div ref={rightContentRef} className="right-content">
           <h2>Right Content</h2>
           <p>This content slides in from the right.</p>
+          <p>This content slides in from the right.</p>
+
         </div>
       </div>
     

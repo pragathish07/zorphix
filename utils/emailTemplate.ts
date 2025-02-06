@@ -131,7 +131,7 @@ export const getEmailTemplate = (name: string) => `
 
                             <p class="event-details">
                                 <strong>Details of the Event:</strong><br>
-                                Zorphix is a national-level symposium conducted by the Computer Science and Business System department at Chennai Institute of Technology, Kundrathur. It is going to be held on 6th February 2025.
+                                Zorphix is a national-level symposium conducted by the Computer Science and Business System department at Chennai Institute of Technology, Kundrathur. It is going to be held on 18th February 2025.
                             </p>
 
                             <div class="left-aligned">

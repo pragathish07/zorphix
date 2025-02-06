@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head><link rel="icon" href="/favicon.ico" sizes="any" /></head>
       <body>
         <Toaster
           position="top-right"
