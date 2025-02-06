@@ -100,6 +100,10 @@ const TechEvents = () => {
         setLoading(false); // Hide loader
     }
 };
+
+
+
+
   return (
     <div className="section-tours" id="events">
       <div className="u-center-text u-margin-bottom-big">
@@ -532,7 +536,7 @@ const TechEvents = () => {
                             "Shaik Ashif",
                             "+91 85559 80454",
                             "+91 63052 53091",
-                            "forms.gle/2r5S34Nfzvnivrzx6",
+                            "https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog",
                             "To be Announced"
                         )
                       }
@@ -540,9 +544,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <button className="btn btn--white" onClick={() => handleRegister('Clash of War')} disabled={loading}>
-                {loading ? "Registering..." : "Register Now"}
-                </button>
+                  <a className="btn btn--white" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfpwPetCc-h6WkBVayJaI5xfxHq5ifKfgQO2zurukaFrdaW3g/viewform?usp=dialog" >
+                    {loading ? "Registering..." : "Register Now"}
+                </a>
                 </div>
               </div>
             </div>
@@ -584,7 +588,7 @@ const TechEvents = () => {
                           "Venkat Charan V",
                           "+91 95001 28710",
                           "+91 98409 35789",
-                          "forms.gle/KQrFXKMjRHmNKVMC6",
+                          "https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog",
                           "To be Announced"
                         )
                       }
@@ -592,9 +596,9 @@ const TechEvents = () => {
                       Know More
                     </p>
                   </div>
-                  <button className="btn btn--white" onClick={() => handleRegister('Battle Field')} disabled={loading}>
+                  <a className="btn btn--white" href="https://docs.google.com/forms/d/e/1FAIpQLSdt61ZkvuigvwmULTAYICBU0WSexzHmD0Ou0jpYLD-6hkZxnw/viewform?usp=dialog" target="_blank">
                 {loading ? "Registering..." : "Register Now"}
-                </button>
+                </a>
                 </div>
               </div>
             </div>
