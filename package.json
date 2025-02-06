@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.2.1",
     "@react-three/drei": "^9.121.3",
     "@react-three/fiber": "^8.17.12",
     "@types/react-bootstrap": "^0.32.37",
@@ -20,6 +21,7 @@
     "firebase": "^11.1.0",
     "framer-motion": "^11.3.2",
     "gsap": "^3.12.7",
+    "html2pdf.js": "^0.10.2",
     "install": "^0.13.0",
     "jspdf": "^2.5.2",
     "mailersend": "^2.2.0",
