@@ -149,6 +149,9 @@ export const getEmailTemplate = (name: string) => `
                             <p class="event-details" style="text-align: center;">
                                 Thank you for registering for this event! We look forward to your participation and hope you have a fruitful experience.
                             </p>
+                            <p class="event-details" style="text-align: center;">
+                               After Registering for the Event,You can Download your OD Letters from your Profile Page
+                            </p>
                         </td>
                     </tr>
                     <tr>
