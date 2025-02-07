@@ -2218,13 +2218,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 90%;
   }
   
 
 
   .mcafe{
-    width: 800px;
+    width: 700px;
     height: 500px;
   }
   
@@ -2330,7 +2330,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-left: 60px;
+      padding-left: 10px;
     }
     .sponsor{
       display: flex;
@@ -2377,8 +2377,8 @@
     }
 
     .mcafe{
-      width: 600px;
-      height: 400px;
+      width: 400px;
+      height: 350px;
     }
   }
   
