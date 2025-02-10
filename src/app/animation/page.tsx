@@ -167,7 +167,7 @@ const ImageAnimation = () => {
 
 
 const LogoModel = () =>  {
-  const { scene } = useGLTF("/z6.glb"); 
+  const { scene } = useGLTF("/z1.glb"); 
 
 
   return (
