@@ -30,7 +30,7 @@ const Sponsors: React.FC = () => {
             <img src={"/img/ovi.png"} className="i ovid" alt="dido" />
           </div>
           <div className="section-sponsor-card" data-aos="fade-right">
-            <h2 className="sponsor_label">Printing Patner</h2>
+            <h2 className="sponsor_label">Printing Partner</h2>
             <img src={"/img/poorvika.png"} className="i por" alt="dido" />
           </div>
           
