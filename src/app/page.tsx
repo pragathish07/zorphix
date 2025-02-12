@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 const App: React.FC = () => {
 
   const [user]=useAuthState(auth);
-  console.log(user);
+ 
 
   const { scrollYProgress } = useScroll();
   const [isLoading, setIsLoading] = useState<boolean>(true);
