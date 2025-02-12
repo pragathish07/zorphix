@@ -2217,15 +2217,24 @@
   .section-sponsor-card {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: 90%;
   }
+
+  .sponsor_label{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+  
   
 
 
   .mcafe{
     width: 700px;
-    height: 500px;
+    height: 400px;
   }
   
   @media screen and (max-width: 480px){
@@ -2237,7 +2246,17 @@
     border-radius: 20px;
     margin-top: 50px;
   }
+
+  .ovid{
+    width: 400px;
+    height: 150px;
+    
+  }
   
+.por{
+  width: 500px;
+}
+
   .padding {
     height: 140px !important;
   }
@@ -2344,9 +2363,10 @@
   
   .sponsor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
   }
   
   .flex-new-2 {
@@ -2376,9 +2396,25 @@
       gap: 30px;
     }
 
+
     .mcafe{
       width: 400px;
-      height: 350px;
+      height: 325px;
+    }
+
+    .ovid{
+      width: 250px;
+      height: 100px;
+    }
+
+    .por{
+      width: 300px;
+
+    }
+
+    .sponsor_label{
+      font-size: 20px;
+      font-weight: 300;
     }
   }
   

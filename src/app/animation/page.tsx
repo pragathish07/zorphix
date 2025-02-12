@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Stage, Environment } from "@react-three/drei";
+import {Model} from "./Model";
 
 import "./ImageAnimation.css";
 
@@ -20,6 +21,7 @@ const ImageAnimation = () => {
   const leftContentRef = useRef(null);
   const rightContentRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const modelRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -135,7 +137,8 @@ const ImageAnimation = () => {
            
           <Stage>
             <LogoModel/>
-
+{/*             <Model ref={modelRef} scale={2.5} position={[Math.PI/2, 0, 0]}/>
+ */}
           </Stage>
           
           <OrbitControls enableZoom={false} enablePan={true} enableRotate={true}/>
@@ -167,7 +170,7 @@ const ImageAnimation = () => {
 
 
 const LogoModel = () =>  {
-  const { scene } = useGLTF("/z1.glb"); 
+  const { scene } = useGLTF("/z2.glb"); 
 
 
   return (
