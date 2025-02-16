@@ -7,10 +7,10 @@ import '../src/app/profile/profile.css'
 
 const ODLetter = ({ userData,agreed }: { userData: any ,agreed:boolean}) => {
     const generatePDF = async () => {
-        if (!userData?.registeredEvents || userData.registeredEvents.length === 0) {
+       /*  if (!userData?.registeredEvents || userData.registeredEvents.length === 0) {
             toast.error("You have not registered for any events!");
             return;
-        }
+        } */
 
         // Create a new PDF document
         const pdfDoc = await PDFDocument.create();
