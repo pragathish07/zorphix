@@ -62,10 +62,7 @@ const Profile: React.FC = () => {
     /// od letter functions starts from here
 
     const handleGenerateOD = () => {
-        if (!userData?.registeredEvents || userData.registeredEvents.length === 0) {
-            toast.error("You have not registered for any events!");
-            return;
-        }
+        
         setModalOpen(true); // Open confirmation modal
     };
 
