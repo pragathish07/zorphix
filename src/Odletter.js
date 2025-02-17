@@ -99,9 +99,9 @@ const generatePDF = async () => {
             return pdfDoc.embedPng(imageBytes);
         };
 
-        const leftLogo = await loadImage("./cit.png"); // Left logo
-        const rightLogo = await loadImage("./loginlog.png"); // Right logo
-        const signatureImage = await loadImage("/hod-sign.png");
+        const leftLogo = await loadImage("/public/img/cit.png"); // Left logo
+        const rightLogo = await loadImage("/public/img/loginlog.png"); // Right logo
+        const signatureImage = await loadImage("/public/img/hod-sign.png");
 
         // Set Font
         const font = await pdfDoc.embedFont(StandardFonts.Helvetica);

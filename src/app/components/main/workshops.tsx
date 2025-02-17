@@ -6,6 +6,7 @@ import PopupModal from "./popupmodal";
 // import axios from "axios";
 import Aos from "aos";
 import 'aos/dist/aos.css';
+import toast from "react-hot-toast";
 
 // Define types for the eventInfo state
 interface EventInfo {
@@ -126,9 +127,9 @@ const Workshops: React.FC = () => {
                   </p>
                 </div>
                 <div className="card__price-box">
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqVd7_6Gpq9f3Sfuao_LyfYA8qWa-omOg3q0amlFRSou1Q0A/viewform?usp=dialog" target="_blank" className="btn btn--white" rel="noopener noreferrer">
+                  <button className="btn btn--white" onClick={() => {toast.error("Sorry,Registration Closed")}}>
                     Register Now
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
